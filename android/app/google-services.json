@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1005966865703",
+    "project_id": "macellum-f7605",
+    "storage_bucket": "macellum-f7605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005966865703:android:f79bed7e16597bd55d6502",
+        "android_client_info": {
+          "package_name": "com.macellum"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOkvWVFf5jHpS9L4xKoUIo16dqOFRaEWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

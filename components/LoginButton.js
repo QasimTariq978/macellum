@@ -6,7 +6,7 @@ const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return {[key]: value === 'unset' ? undefined : value};
 };
-const StartButton = ({
+const LoginButton = ({
   navigation,
   buttonText,
   propHeight,
@@ -30,7 +30,7 @@ const StartButton = ({
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate('SignIn');
+        navigation.navigate('Explore');
       }}
       style={[styles.button, buttonStyle]}>
       <Text style={styles.getStarted}>{buttonText}</Text>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StartButton;
+export default LoginButton;

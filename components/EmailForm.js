@@ -1,58 +1,27 @@
-import React, { useMemo } from "react";
-import {
-  Text,
-  StyleSheet,
-  Image,
-  View,
-  ImageSourcePropType,
-} from "react-native";
-import { FontSize, FontFamily, Color } from "../GlobalStyles";
+import React, {useState, useEffect} from 'react';
+import {Text, StyleSheet, View, TextInput} from 'react-native';
+import {FontSize, FontFamily, Color} from '../GlobalStyles';
 
-const getStyleValue = (key, value) => {
-  if (value === undefined) return;
-  return { [key]: value === "unset" ? undefined : value };
-};
-const EmailForm = ({
-  userEmail,
-  groceryEmail,
-  imageDimensions,
-  propTop,
-  propColor,
-}) => {
-  const frameStyle = useMemo(() => {
-    return {
-      ...getStyleValue("top", propTop),
-    };
-  }, [propTop]);
+const EmailForm = ({setEmailData}) => {
+  const [userEmail, setUserEmail] = useState('');
 
-  const grocerymacellumcomStyle = useMemo(() => {
-    return {
-      ...getStyleValue("color", propColor),
-    };
-  }, [propColor]);
+  useEffect(() => {
+    // Trigger sign-up action when userEmail input changes
+    if (userEmail.length > 0) {
+      setEmailData(userEmail);
+      // Perform the sign-up action here using setEmailData or any other necessary logic
+    }
+  }, [userEmail, setEmailData]);
 
   return (
-    <View style={[styles.frame, frameStyle]}>
+    <View style={styles.frame}>
       <View style={styles.email}>
-        <Text style={[styles.email1, styles.email1FlexBox]}>{userEmail}</Text>
-        <View
-          style={[styles.grocerymacellumcomParent, styles.frameChildSpaceBlock]}
-        >
-          <Text
-            style={[
-              styles.grocerymacellumcom,
-              styles.email1FlexBox,
-              grocerymacellumcomStyle,
-            ]}
-          >
-            {groceryEmail}
-          </Text>
-          <Image
-            style={[styles.frameChild, styles.frameChildSpaceBlock]}
-            resizeMode="cover"
-            source={imageDimensions}
-          />
-        </View>
+        <TextInput
+          style={[styles.email1, styles.email1FlexBox]}
+          value={userEmail}
+          onChangeText={text => setUserEmail(text)}
+          placeholder="User Email"
+        />
       </View>
     </View>
   );
@@ -60,7 +29,7 @@ const EmailForm = ({
 
 const styles = StyleSheet.create({
   email1FlexBox: {
-    textAlign: "left",
+    textAlign: 'left',
     lineHeight: 29,
   },
   frameChildSpaceBlock: {
@@ -71,15 +40,20 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_base,
     fontFamily: FontFamily.montserratRegular,
     color: Color.colorGray_200,
+    borderBottomWidth: 1,
+    borderBottomColor: Color.colorDarkslategray,
+    marginBottom: 10,
   },
   grocerymacellumcom: {
     fontSize: FontSize.size_lg,
-    fontWeight: "500",
+    fontWeight: '500',
     fontFamily: FontFamily.montserratMedium,
     color: Color.darkDeep,
+    borderBottomWidth: 1,
+    borderBottomColor: Color.colorDarkslategray,
   },
   frameChild: {
-    maxHeight: "100%",
+    maxHeight: '100%',
   },
   grocerymacellumcomParent: {
     height: 40,
@@ -89,13 +63,27 @@ const styles = StyleSheet.create({
     width: 364,
   },
   frame: {
-    position: "absolute",
+    position: 'absolute',
     top: 441,
     left: 25,
-    overflow: "hidden",
-    alignItems: "center",
-    justifyContent: "center",
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
     width: 364,
+  },
+  inputGroceryEmail: {
+    marginTop: 10,
+  },
+
+  buttonContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  signUpButton: {
+    padding: 10,
+    backgroundColor: 'blue',
+    color: 'white',
+    borderRadius: 5,
   },
 });
 

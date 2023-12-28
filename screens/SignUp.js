@@ -1,23 +1,39 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import PasswordFormContainer from "../components/PasswordFormContainer";
-import StartButton from "../components/StartButton";
-import EmailForm from "../components/EmailForm";
-import { FontFamily, FontSize, Color } from "../GlobalStyles";
+import * as React from 'react';
+import {useState} from 'react';
+import {Alert, Image, StyleSheet, Text, View} from 'react-native';
+import PasswordFormContainer from '../components/PasswordFormContainer';
+import StartButton from '../components/StartButton';
+import EmailForm from '../components/EmailForm';
+import {FontFamily, FontSize, Color} from '../GlobalStyles';
+import auth from '@react-native-firebase/auth';
 
 const SignUp = () => {
+  const [emailData, setEmailData] = useState('');
+  const [password, setPassword] = useState('');
+  const signUp = () => {
+    console.log('User Email:', emailData);
+    console.log('Password:', password);
+    auth()
+      .createUserWithEmailAndPassword(emailData, password)
+      .then(() => {
+        Alert.alert('user Created');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   return (
     <View style={styles.signUp}>
       <Image
         style={[styles.frameIcon, styles.frameIconPosition]}
         resizeMode="cover"
-        source={require("../assets/frame.png")}
+        source={require('../assets/frame.png')}
       />
-      <PasswordFormContainer />
+      <PasswordFormContainer setPasswordData={setPassword} />
       <Image
         style={[styles.frameIcon1, styles.frameLayout]}
         resizeMode="cover"
-        source={require("../assets/frame1.png")}
+        source={require('../assets/frame1.png')}
       />
       <StartButton
         buttonText="Sign Up"
@@ -27,21 +43,16 @@ const SignUp = () => {
         propRight="unset"
         propBottom="unset"
         propLeft={25}
+        onPress={signUp}
       />
       <EmailForm
         userEmail="Email"
         groceryEmail="grocery@macellum.com"
-        imageDimensions={require("../assets/vector-21.png")}
+        imageDimensions={require('../assets/vector-21.png')}
         propTop={441}
         propColor="#181725"
       />
-      <EmailForm
-        userEmail="Username"
-        groceryEmail="grocery1"
-        imageDimensions={require("../assets/vector-22.png")}
-        propTop={332}
-        propColor="#030303"
-      />
+      <EmailForm setEmailData={setEmailData} />
       <View style={[styles.frame, styles.frameFlexBox]}>
         <View style={styles.text}>
           <Text style={styles.signUp1}>Sign Up</Text>
@@ -49,8 +60,7 @@ const SignUp = () => {
             style={[
               styles.enterYourCredentials,
               styles.enterYourCredentialsTypo,
-            ]}
-          >
+            ]}>
             Enter your Credentials to continue
           </Text>
         </View>
@@ -80,45 +90,45 @@ const SignUp = () => {
 
 const styles = StyleSheet.create({
   frameIconPosition: {
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   frameLayout: {
     width: 364,
     left: 25,
   },
   frameFlexBox: {
-    justifyContent: "center",
-    position: "absolute",
-    overflow: "hidden",
+    justifyContent: 'center',
+    position: 'absolute',
+    overflow: 'hidden',
   },
   enterYourCredentialsTypo: {
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   containerTypo: {
     lineHeight: 15,
     letterSpacing: 0.7,
     fontSize: FontSize.size_sm,
-    textAlign: "left",
+    textAlign: 'left',
   },
   frameIcon: {
     top: 0,
     left: 0,
     width: 414,
     height: 896,
-    position: "absolute",
+    position: 'absolute',
   },
   frameIcon1: {
     top: 487,
     height: 15,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   signUp1: {
     fontSize: FontSize.size_7xl,
     lineHeight: 29,
-    textAlign: "left",
+    textAlign: 'left',
     color: Color.colorGray_300,
     fontFamily: FontFamily.montserratRegular,
   },
@@ -127,7 +137,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     marginTop: 15,
     color: Color.colorGray_200,
-    textAlign: "left",
+    textAlign: 'left',
   },
   text: {
     width: 280,
@@ -151,7 +161,7 @@ const styles = StyleSheet.create({
     width: 359,
     height: 39,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   frame1: {
     top: 648,
@@ -166,14 +176,14 @@ const styles = StyleSheet.create({
   frame2: {
     top: 809,
     left: 87,
-    alignItems: "center",
+    alignItems: 'center',
     width: 241,
   },
   signUp: {
     backgroundColor: Color.colorGray_100,
     flex: 1,
-    width: "100%",
-    overflow: "hidden",
+    width: '100%',
+    overflow: 'hidden',
     height: 896,
   },
 });

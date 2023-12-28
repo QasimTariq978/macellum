@@ -31,6 +31,28 @@ const App = () => {
         {hideSplashScreen ? (
           <Stack.Navigator screenOptions={{headerShown: false}}>
             <Stack.Screen
+              name="FrontScreen"
+              component={FrontScreen}
+              options={{headerShown: false}}
+            />
+
+            <Stack.Screen
+              name="Start"
+              component={Start}
+              options={{headerShown: false}}
+            />
+
+            <Stack.Screen
+              name="SignIn"
+              component={SignIn}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="PhoneNumber"
+              component={PhoneNumber}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
               name="Verification"
               component={Verification}
               options={{headerShown: false}}
@@ -46,25 +68,8 @@ const App = () => {
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="Start"
-              component={Start}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Explore"
-              component={Explore}
-              options={{headerShown: false}}
-            />
-
-            <Stack.Screen
-              name="PhoneNumber"
-              component={PhoneNumber}
-              options={{headerShown: false}}
-            />
-
-            <Stack.Screen
-              name="FrontScreen"
-              component={FrontScreen}
+              name="LogIn"
+              component={LogIn}
               options={{headerShown: false}}
             />
             <Stack.Screen
@@ -73,23 +78,13 @@ const App = () => {
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="Search"
-              component={Search}
+              name="ProductDetail"
+              component={ProductDetail}
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="Favorites"
-              component={Favorites}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="MyCart"
-              component={MyCart}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Filters"
-              component={Filters}
+              name="Explore"
+              component={Explore}
               options={{headerShown: false}}
             />
             <Stack.Screen
@@ -98,18 +93,23 @@ const App = () => {
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="ProductDetail"
-              component={ProductDetail}
+              name="Search"
+              component={Search}
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="LogIn"
-              component={LogIn}
+              name="Filters"
+              component={Filters}
               options={{headerShown: false}}
             />
             <Stack.Screen
-              name="SignIn"
-              component={SignIn}
+              name="MyCart"
+              component={MyCart}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Favorites"
+              component={Favorites}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

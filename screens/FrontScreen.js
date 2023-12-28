@@ -1,11 +1,18 @@
-import * as React from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-import { FontFamily, Color, FontSize, Border, Padding } from "../GlobalStyles";
+import * as React from 'react';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import {FontFamily, Color, FontSize, Border, Padding} from '../GlobalStyles';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Start from './Start';
 
-const FrontScreen = () => {
+const FrontScreen = ({navigation}) => {
   return (
     <View style={styles.frontScreen}>
-      <View style={styles.frame}>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Start');
+        }}
+        style={styles.frame}>
         <View style={styles.naviagtion}>
           <View style={styles.navigationBar} />
         </View>
@@ -14,10 +21,10 @@ const FrontScreen = () => {
           <Image
             style={styles.vectorIcon}
             resizeMode="cover"
-            source={require("../assets/vector6.png")}
+            source={require('../assets/vector6.png')}
           />
         </View>
-      </View>
+      </TouchableOpacity>
       <View style={styles.frame1}>
         <Text style={styles.buyGroceriesOnline}>Buy Groceries Online</Text>
         <View style={styles.barsHomeIndicatorIphone}>
@@ -32,39 +39,38 @@ const styles = StyleSheet.create({
   navigationBar: {
     width: 414,
     height: 98,
-    overflow: "hidden",
-    justifyContent: "flex-start",
-    alignItems: "center",
+    overflow: 'hidden',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
   naviagtion: {
     width: 414,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   macellum: {
-    position: "absolute",
-    top: 13,
+    position: 'absolute',
+    top: -1,
     left: 51,
     fontSize: 48,
-    lineHeight: 29,
     fontFamily: FontFamily.orbitronRegular,
     color: Color.colorWhite,
-    textAlign: "center",
+    textAlign: 'center',
     width: 340,
-    height: 34,
+    height: 100,
   },
   vectorIcon: {
-    position: "absolute",
-    height: "100%",
-    width: "20.23%",
-    top: "0%",
-    right: "79.77%",
-    bottom: "0%",
-    left: "0%",
-    maxWidth: "100%",
-    overflow: "hidden",
-    maxHeight: "100%",
+    position: 'absolute',
+    height: '100%',
+    width: '20.23%',
+    top: '0%',
+    right: '79.77%',
+    bottom: '0%',
+    left: '0%',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    maxHeight: '100%',
   },
   macellumParent: {
     width: 391,
@@ -73,28 +79,28 @@ const styles = StyleSheet.create({
     marginTop: 304,
   },
   frame: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     width: 423,
-    overflow: "hidden",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    overflow: 'hidden',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buyGroceriesOnline: {
     fontSize: FontSize.size_sm,
     letterSpacing: 6,
     lineHeight: 18,
-    fontWeight: "500",
+    fontWeight: '500',
     fontFamily: FontFamily.montserratMedium,
     color: Color.colorWhite,
-    textAlign: "center",
+    textAlign: 'center',
     height: 18,
     marginLeft: 97,
   },
   homeIndicator: {
-    position: "relative",
+    position: 'relative',
     borderRadius: Border.br_81xl,
     backgroundColor: Color.colorBlack,
     width: 134,
@@ -103,9 +109,9 @@ const styles = StyleSheet.create({
   barsHomeIndicatorIphone: {
     width: 148,
     height: 37,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
     paddingHorizontal: Padding.p_0,
     paddingVertical: Padding.p_5xs,
     opacity: 0.1,
@@ -113,23 +119,23 @@ const styles = StyleSheet.create({
     marginTop: 366,
   },
   frame1: {
-    position: "absolute",
+    position: 'absolute',
     top: 475,
     left: 0,
     width: 352,
     height: 421,
-    overflow: "hidden",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
+    overflow: 'hidden',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
   },
   frontScreen: {
-    position: "relative",
+    position: 'relative',
     backgroundColor: Color.colorSeagreen_100,
     flex: 1,
-    width: "100%",
+    width: '100%',
     height: 896,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 

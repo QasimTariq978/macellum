@@ -1,26 +1,27 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import { Padding, Border, Color, FontFamily, FontSize } from "../GlobalStyles";
+import * as React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Padding, Border, Color, FontFamily, FontSize} from '../GlobalStyles';
+import PhoneNumber from './PhoneNumber';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <View style={styles.signIn}>
       <Image
         style={[styles.maskGroupIcon, styles.maskGroupPosition]}
         resizeMode="cover"
-        source={require("../assets/mask-group1.png")}
+        source={require('../assets/mask-group1.png')}
       />
       <Image
         style={[styles.maskGroupIcon1, styles.maskGroupPosition]}
         resizeMode="cover"
-        source={require("../assets/mask-group2.png")}
+        source={require('../assets/mask-group2.png')}
       />
       <View style={[styles.facebook, styles.googleLayout]}>
         <View style={[styles.vectorParent, styles.parentFlexBox]}>
           <Image
             style={styles.vectorIcon}
             resizeMode="cover"
-            source={require("../assets/vector26.png")}
+            source={require('../assets/vector26.png')}
           />
           <Text style={[styles.continueWithFacebook, styles.continueTypo]}>
             Continue with Facebook
@@ -32,7 +33,7 @@ const SignIn = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/group-6795.png")}
+            source={require('../assets/group-6795.png')}
           />
           <Text style={[styles.continueWithGoogle, styles.continueTypo]}>
             Continue with Google
@@ -40,34 +41,44 @@ const SignIn = () => {
         </View>
       </View>
       <View style={[styles.parent, styles.parentLayout]}>
-        <Text style={[styles.text, styles.textFlexBox]}>+92</Text>
-        <Image
-          style={styles.pakistanFlagIcon}
-          resizeMode="cover"
-          source={require("../assets/pakistan-flag1.png")}
-        />
-        <Image
-          style={[styles.frameItem, styles.parentLayout]}
-          resizeMode="cover"
-          source={require("../assets/vector-29.png")}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('PhoneNumber');
+          }}>
+          <Text style={[styles.text, styles.textFlexBox]}>+92</Text>
+          {/* Text Input Component Here */}
+          <Image
+            style={styles.pakistanFlagIcon}
+            resizeMode="cover"
+            source={require('../assets/pakistan-flag1.png')}
+          />
+          <Image
+            style={[styles.frameItem, styles.parentLayout]}
+            resizeMode="cover"
+            source={require('../assets/vector-29.png')}
+          />
+        </TouchableOpacity>
       </View>
       <Text
-        style={[styles.groceriesHomeDeliveredWithContainer, styles.textClr]}
-      >
+        style={[styles.groceriesHomeDeliveredWithContainer, styles.textClr]}>
         <Text style={styles.groceriesHomeDelivered}>
           <Text style={styles.groceriesHomeDelivered1}>
             Groceries Home Delivered
           </Text>
         </Text>
         <Text>
-          <Text style={styles.groceriesHomeDelivered1}>{`with `}</Text>
+          <Text style={styles.groceriesHomeDelivered1}>{` with `}</Text>
           <Text style={styles.macellum}>Macellum</Text>
         </Text>
       </Text>
-      <Text style={[styles.orLoginWith, styles.textFlexBox]}>
-        Or login with email
-      </Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('LogIn');
+        }}>
+        <Text style={[styles.orLoginWith, styles.textFlexBox]}>
+          Or login with email
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -76,38 +87,38 @@ const styles = StyleSheet.create({
   maskGroupPosition: {
     top: 0,
     left: 0,
-    position: "absolute",
+    position: 'absolute',
   },
   googleLayout: {
     paddingVertical: Padding.p_0,
     paddingHorizontal: 36,
-    justifyContent: "center",
+    justifyContent: 'center',
     height: 67,
     borderRadius: Border.br_lgi,
     width: 364,
     left: 25,
-    position: "absolute",
+    position: 'absolute',
   },
   parentFlexBox: {
-    alignItems: "center",
-    flexDirection: "row",
+    alignItems: 'center',
+    flexDirection: 'row',
     height: 24,
   },
   continueTypo: {
     height: 14,
     color: Color.colorGray_100,
     lineHeight: 18,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     fontSize: FontSize.size_lg,
   },
   parentLayout: {
     width: 364,
-    position: "absolute",
+    position: 'absolute',
   },
   textFlexBox: {
-    textAlign: "center",
-    position: "absolute",
+    textAlign: 'center',
+    position: 'absolute',
   },
   textClr: {
     color: Color.colorGray_300,
@@ -136,7 +147,7 @@ const styles = StyleSheet.create({
   },
   facebook: {
     top: 739,
-    backgroundColor: "#4a66ac",
+    backgroundColor: '#4a66ac',
   },
   frameChild: {
     width: 25,
@@ -151,16 +162,16 @@ const styles = StyleSheet.create({
   },
   google: {
     top: 652,
-    backgroundColor: "#5383ec",
+    backgroundColor: '#5383ec',
   },
   text: {
     left: 51,
-    fontWeight: "500",
+    fontWeight: '500',
     fontFamily: FontFamily.montserratMedium,
     color: Color.colorGray_300,
     lineHeight: 29,
     fontSize: FontSize.size_lg,
-    textAlign: "center",
+    textAlign: 'center',
     top: 0,
   },
   pakistanFlagIcon: {
@@ -169,11 +180,11 @@ const styles = StyleSheet.create({
     width: 34,
     height: 24,
     left: 0,
-    position: "absolute",
+    position: 'absolute',
   },
   frameItem: {
     top: 40,
-    maxHeight: "100%",
+    maxHeight: '100%',
     left: 0,
   },
   parent: {
@@ -189,31 +200,31 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   macellum: {
-    fontWeight: "700",
+    fontWeight: '700',
     fontFamily: FontFamily.montserratBold,
   },
   groceriesHomeDeliveredWithContainer: {
     top: 424,
     fontSize: FontSize.size_7xl,
     width: 351,
-    textAlign: "left",
+    textAlign: 'left',
     color: Color.colorGray_300,
     lineHeight: 29,
     left: 25,
-    position: "absolute",
+    position: 'absolute',
   },
   orLoginWith: {
     top: 597,
     left: 140,
     fontSize: FontSize.size_sm,
-    color: "#828282",
+    color: '#828282',
     fontFamily: FontFamily.montserratRegular,
   },
   signIn: {
     backgroundColor: Color.colorGray_100,
     flex: 1,
-    width: "100%",
-    overflow: "hidden",
+    width: '100%',
+    overflow: 'hidden',
     height: 896,
   },
 });
