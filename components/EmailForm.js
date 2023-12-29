@@ -15,12 +15,24 @@ const EmailForm = ({setEmailData}) => {
 
   return (
     <View style={styles.frame}>
+      <Text
+        style={{
+          color: 'black',
+          textAlign: 'left',
+          alignSelf: 'flex-start',
+          fontSize: FontSize.size_base,
+          fontFamily: FontFamily.montserratRegular,
+          marginBottom: 13,
+        }}>
+        Email
+      </Text>
       <View style={styles.email}>
         <TextInput
           style={[styles.email1, styles.email1FlexBox]}
           value={userEmail}
           onChangeText={text => setUserEmail(text)}
-          placeholder="User Email"
+          placeholder="Enter Email Here"
+          placeholderTextColor={'gray'}
         />
       </View>
     </View>
@@ -64,7 +76,7 @@ const styles = StyleSheet.create({
   },
   frame: {
     position: 'absolute',
-    top: 441,
+    top: 350,
     left: 25,
     overflow: 'hidden',
     alignItems: 'center',

@@ -1,29 +1,31 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import CityContainer from "../components/CityContainer";
-import StartButton from "../components/StartButton";
-import { FontSize, FontFamily, Color } from "../GlobalStyles";
+import * as React from 'react';
+import {Image, StyleSheet, Text, View} from 'react-native';
+import CityContainer from '../components/CityContainer';
+import StartButton from '../components/StartButton';
+import {FontSize, FontFamily, Color} from '../GlobalStyles';
+import SubmitButton from '../components/SubmitButton';
 
-const SelectLocation = () => {
+const SelectLocation = ({navigation}) => {
   return (
     <View style={styles.selectLocation}>
       <Image
         style={styles.frameIcon}
         resizeMode="cover"
-        source={require("../assets/frame2.png")}
+        source={require('../assets/frame2.png')}
       />
       <View style={styles.frame}>
         <Image
           style={[styles.frameIcon1, styles.framePosition]}
           resizeMode="cover"
-          source={require("../assets/frame3.png")}
+          source={require('../assets/frame3.png')}
         />
         <View style={[styles.frame1, styles.textFlexBox]}>
           <View style={[styles.text, styles.textFlexBox]}>
             <Text style={styles.selectYourLocation}>Select Your Location</Text>
             <Text
-              style={styles.swithchOnYour}
-            >{`Swithch on your location to stay in tune with
+              style={
+                styles.swithchOnYour
+              }>{`Swithch on your location to stay in tune with
 what’s happening in your area
 `}</Text>
           </View>
@@ -31,21 +33,21 @@ what’s happening in your area
         <CityContainer
           locationLabel="Your City"
           areaLabel="Islamabad"
-          imageLabel={require("../assets/vector-23.png")}
-          cityCode={require("../assets/vector4.png")}
+          imageLabel={require('../assets/vector-23.png')}
+          cityCode={require('../assets/vector4.png')}
           propTop={401}
           propColor="#181725"
         />
         <CityContainer
           locationLabel="Your Area"
           areaLabel="Enter your Area"
-          imageLabel={require("../assets/vector-24.png")}
-          cityCode={require("../assets/vector5.png")}
+          imageLabel={require('../assets/vector-24.png')}
+          cityCode={require('../assets/vector5.png')}
           propTop={510}
           propPaddingLeft={4}
           propColor="#b1b1b1"
         />
-        <StartButton
+        <SubmitButton
           buttonText="Submit"
           propHeight={67}
           propWidth={364}
@@ -53,6 +55,9 @@ what’s happening in your area
           propRight="unset"
           propBottom="unset"
           propLeft={0}
+          onPress={() => {
+            navigation.navigate('SignUp');
+          }}
         />
       </View>
     </View>
@@ -61,16 +66,16 @@ what’s happening in your area
 
 const styles = StyleSheet.create({
   framePosition: {
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   textFlexBox: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   frameIcon: {
     width: 415,
-    overflow: "hidden",
+    overflow: 'hidden',
     height: 896,
   },
   frameIcon1: {
@@ -84,16 +89,16 @@ const styles = StyleSheet.create({
     lineHeight: 29,
     fontFamily: FontFamily.montserratRegular,
     color: Color.darkDeep,
-    textAlign: "center",
+    textAlign: 'center',
   },
   swithchOnYour: {
     fontSize: FontSize.size_base,
     lineHeight: 15,
-    fontWeight: "500",
+    fontWeight: '500',
     fontFamily: FontFamily.montserratMedium,
     color: Color.colorGray_200,
     marginTop: 15,
-    textAlign: "center",
+    textAlign: 'center',
   },
   text: {
     width: 363,
@@ -102,23 +107,23 @@ const styles = StyleSheet.create({
   frame1: {
     top: 211,
     left: 0,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
     width: 364,
   },
   frame: {
     height: 776,
     marginTop: -776,
     width: 364,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   selectLocation: {
     backgroundColor: Color.colorGray_100,
     flex: 1,
-    width: "100%",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    overflow: "hidden",
+    width: '100%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    overflow: 'hidden',
     height: 896,
   },
 });

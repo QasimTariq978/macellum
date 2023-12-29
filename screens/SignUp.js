@@ -1,13 +1,20 @@
 import * as React from 'react';
 import {useState} from 'react';
-import {Alert, Image, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import PasswordFormContainer from '../components/PasswordFormContainer';
-import StartButton from '../components/StartButton';
 import EmailForm from '../components/EmailForm';
 import {FontFamily, FontSize, Color} from '../GlobalStyles';
 import auth from '@react-native-firebase/auth';
+import SignUpButton from '../components/SignUpButton';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   const [emailData, setEmailData] = useState('');
   const [password, setPassword] = useState('');
   const signUp = () => {
@@ -16,7 +23,8 @@ const SignUp = () => {
     auth()
       .createUserWithEmailAndPassword(emailData, password)
       .then(() => {
-        Alert.alert('user Created');
+        Alert.alert('User Created');
+        navigation.navigate('LogIn');
       })
       .catch(err => {
         console.log(err);
@@ -30,27 +38,15 @@ const SignUp = () => {
         source={require('../assets/frame.png')}
       />
       <PasswordFormContainer setPasswordData={setPassword} />
-      <Image
-        style={[styles.frameIcon1, styles.frameLayout]}
-        resizeMode="cover"
-        source={require('../assets/frame1.png')}
-      />
-      <StartButton
+      <SignUpButton
         buttonText="Sign Up"
         propHeight={67}
         propWidth={364}
-        propTop={717}
+        propTop={670}
         propRight="unset"
         propBottom="unset"
         propLeft={25}
         onPress={signUp}
-      />
-      <EmailForm
-        userEmail="Email"
-        groceryEmail="grocery@macellum.com"
-        imageDimensions={require('../assets/vector-21.png')}
-        propTop={441}
-        propColor="#181725"
       />
       <EmailForm setEmailData={setEmailData} />
       <View style={[styles.frame, styles.frameFlexBox]}>
@@ -65,25 +61,18 @@ const SignUp = () => {
           </Text>
         </View>
       </View>
-      <View style={[styles.frame1, styles.frameFlexBox]}>
-        <Text style={[styles.byContinuingYouContainer, styles.containerTypo]}>
-          <Text style={styles.byContinuingYou}>
-            By continuing you agree to our
+      <View style={[styles.frame1, styles.frameFlexBox]}></View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('LogIn');
+        }}>
+        <View style={[styles.frame2, styles.frameFlexBox]}>
+          <Text style={[styles.alreadyHaveAnContainer, styles.containerTypo]}>
+            <Text style={styles.text1}>{`Already have an account? `}</Text>
+            <Text style={styles.termsOfService}>Sign In</Text>
           </Text>
-          <Text style={styles.text1}>{` `}</Text>
-          <Text style={styles.termsOfService}>{`Terms of Service
-`}</Text>
-          <Text style={styles.byContinuingYou}>and</Text>
-          <Text style={styles.text1}>{` `}</Text>
-          <Text style={styles.termsOfService}>Privacy Policy.</Text>
-        </Text>
-      </View>
-      <View style={[styles.frame2, styles.frameFlexBox]}>
-        <Text style={[styles.alreadyHaveAnContainer, styles.containerTypo]}>
-          <Text style={styles.text1}>{`Already have an account? `}</Text>
-          <Text style={styles.termsOfService}>Sign Up</Text>
-        </Text>
-      </View>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -107,8 +96,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   containerTypo: {
-    lineHeight: 15,
-    letterSpacing: 0.7,
+    height: 10,
+    letterSpacing: 1,
     fontSize: FontSize.size_sm,
     textAlign: 'left',
   },
@@ -174,7 +163,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.montserratRegular,
   },
   frame2: {
-    top: 809,
+    top: 770,
     left: 87,
     alignItems: 'center',
     width: 241,

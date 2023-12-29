@@ -5,37 +5,16 @@ import {FontFamily, Color, FontSize, Border, Padding} from '../GlobalStyles';
 const PhoneNumber = ({navigation}) => {
   return (
     <View style={styles.phoneNumber}>
-      <View style={[styles.frame, styles.frameIconPosition]}>
-        <Text style={[styles.mobileNumber, styles.mobileTypo]}>
-          Mobile Number
-        </Text>
-      </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('verification');
+          navigation.navigate('Verification');
         }}>
         <Image
           style={[styles.frameIcon, styles.frameIconPosition]}
           source={require('../assets/frame7.png')}
         />
       </TouchableOpacity>
-      <View style={[styles.frame1, styles.frameIconLayout]}>
-        <Image
-          style={[styles.frameIcon1, styles.frameIconLayout]}
-          resizeMode="cover"
-          source={require('../assets/frame8.png')}
-        />
-      </View>
-      <View style={[styles.frame2, styles.frameIconPosition1]}>
-        <View style={styles.barsHomeIndicatorIphone}>
-          <View style={styles.homeIndicator} />
-        </View>
-      </View>
-      <Image
-        style={[styles.frameIcon2, styles.frameIconLayout]}
-        resizeMode="cover"
-        source={require('../assets/frame9.png')}
-      />
+
       <View style={[styles.frameParent, styles.frameParentPosition]}>
         <View style={styles.frame3}>
           <Image
@@ -45,22 +24,26 @@ const PhoneNumber = ({navigation}) => {
           />
           <Text style={[styles.text, styles.textClr]}>+92</Text>
         </View>
-        <Image
-          style={styles.frameChild}
-          resizeMode="cover"
-          source={require('../assets/vector-26.png')}
-        />
       </View>
       <View style={[styles.frame4, styles.frameIconPosition]}>
         <Text style={[styles.enterYourMobile, styles.textClr]}>
           Enter your mobile number
         </Text>
+        <Text style={[styles.mobileNumber, styles.mobileTypo]}>
+          Mobile Number
+        </Text>
       </View>
-      <Image
-        style={[styles.frameIcon3, styles.frameIconPosition]}
-        resizeMode="cover"
-        source={require('../assets/frame10.png')}
-      />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('SignIn');
+        }}>
+        <Image
+          style={[styles.frameIcon3, styles.frameIconPosition]}
+          resizeMode="cover"
+          source={require('../assets/frame10.png')}
+        />
+      </TouchableOpacity>
+
       <View style={[styles.phoneNumberChild, styles.frameParentPosition]} />
     </View>
   );

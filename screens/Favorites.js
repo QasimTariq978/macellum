@@ -1,7 +1,7 @@
-import * as React from "react";
-import { Text, StyleSheet, View, Image } from "react-native";
-import FormContainer from "../components/FormContainer";
-import { Color, FontFamily, FontSize, Border } from "../GlobalStyles";
+import * as React from 'react';
+import {Text, StyleSheet, View, Image} from 'react-native';
+import FormContainer from '../components/FormContainer';
+import {Color, FontFamily, FontSize, Border} from '../GlobalStyles';
 
 const Favorites = () => {
   return (
@@ -16,20 +16,19 @@ const Favorites = () => {
       <FormContainer
         beverageName="Sprite Can"
         beverageSizeAndPrice="325ml, Price"
-        beverageCode={require("../assets/back-arrow6.png")}
+        beverageCode={require('../assets/back-arrow6.png')}
         propTop={143}
       />
       <FormContainer
         beverageName="Diet Coke"
         beverageSizeAndPrice="355ml, Price"
-        beverageCode={require("../assets/back-arrow7.png")}
+        beverageCode={require('../assets/back-arrow7.png')}
         propTop={258}
       />
       <View style={[styles.frameParent, styles.frameFlexBox]}>
         <View style={styles.h1Parent}>
           <Text
-            style={[styles.h1, styles.h1FlexBox]}
-          >{`Apple & Grape Juice`}</Text>
+            style={[styles.h1, styles.h1FlexBox]}>{`Apple & Grape Juice`}</Text>
           <Text style={[styles.h2, styles.h2Typo]}>2L, Price</Text>
         </View>
         <View style={[styles.h1Group, styles.h1GroupFlexBox]}>
@@ -37,7 +36,7 @@ const Favorites = () => {
           <Image
             style={[styles.backArrowIcon, styles.backIconLayout]}
             resizeMode="cover"
-            source={require("../assets/back-arrow8.png")}
+            source={require('../assets/back-arrow8.png')}
           />
         </View>
       </View>
@@ -51,7 +50,7 @@ const Favorites = () => {
           <Image
             style={[styles.backArrowIcon1, styles.backIconLayout]}
             resizeMode="cover"
-            source={require("../assets/back-arrow9.png")}
+            source={require('../assets/back-arrow9.png')}
           />
         </View>
       </View>
@@ -65,34 +64,34 @@ const Favorites = () => {
           <Image
             style={[styles.backArrowIcon1, styles.backIconLayout]}
             resizeMode="cover"
-            source={require("../assets/back-arrow10.png")}
+            source={require('../assets/back-arrow10.png')}
           />
         </View>
       </View>
       <Image
         style={[styles.pngfuel12Icon, styles.iconPosition]}
         resizeMode="cover"
-        source={require("../assets/pngfuel-12.png")}
+        source={require('../assets/pngfuel-12.png')}
       />
       <Image
         style={[styles.pngfuel11Icon, styles.vectorParentLayout]}
         resizeMode="cover"
-        source={require("../assets/pngfuel-11.png")}
+        source={require('../assets/pngfuel-11.png')}
       />
       <Image
         style={styles.treeTopJuiceAppleGrape64oIcon}
         resizeMode="cover"
-        source={require("../assets/treetopjuiceapplegrape64oz-1.png")}
+        source={require('../assets/treetopjuiceapplegrape64oz-1.png')}
       />
       <Image
         style={styles.pngfuel13Icon}
         resizeMode="cover"
-        source={require("../assets/pngfuel-13.png")}
+        source={require('../assets/pngfuel-13.png')}
       />
       <Image
         style={[styles.pngfuel14Icon, styles.iconPosition]}
         resizeMode="cover"
-        source={require("../assets/pngfuel-14.png")}
+        source={require('../assets/pngfuel-14.png')}
       />
       <View style={[styles.google, styles.googleFlexBox]}>
         <Text style={[styles.addAllTo, styles.addAllToTypo]}>
@@ -100,13 +99,11 @@ const Favorites = () => {
         </Text>
       </View>
       <View style={[styles.bottomBar, styles.favoritesLayout1]}>
-        <Text style={[styles.home, styles.homePosition]}>Home</Text>
-        <Text style={[styles.profile, styles.homePosition]}>Profile</Text>
         <View style={[styles.vectorParent, styles.vectorParentLayout]}>
           <Image
             style={styles.vectorIcon}
             resizeMode="cover"
-            source={require("../assets/vector13.png")}
+            source={require('../assets/vector13.png')}
           />
           <Text style={[styles.cart, styles.cartTypo]}>Cart</Text>
         </View>
@@ -114,7 +111,7 @@ const Favorites = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/store-13.png")}
+            source={require('../assets/store-13.png')}
           />
           <Text style={[styles.shop, styles.cartTypo]}>Shop</Text>
         </View>
@@ -123,7 +120,7 @@ const Favorites = () => {
             <Image
               style={styles.vectorIcon1}
               resizeMode="cover"
-              source={require("../assets/vector14.png")}
+              source={require('../assets/vector14.png')}
             />
             <View style={[styles.frameChild, styles.frameLayout]} />
             <View style={[styles.frameItem, styles.frameLayout]} />
@@ -135,7 +132,7 @@ const Favorites = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/bookmark-13.png")}
+            source={require('../assets/bookmark-13.png')}
           />
           <Text style={[styles.favourite, styles.cartTypo]}>Favourite</Text>
         </View>
@@ -143,7 +140,7 @@ const Favorites = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/user-13.png")}
+            source={require('../assets/user-13.png')}
           />
           <Text style={[styles.shop, styles.cartTypo]}>Account</Text>
         </View>
@@ -154,12 +151,12 @@ const Favorites = () => {
 
 const styles = StyleSheet.create({
   favoritesLayout1: {
-    width: "100%",
+    width: '100%',
     backgroundColor: Color.colorWhite,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   addAllToTypo: {
-    textAlign: "center",
+    textAlign: 'center',
     fontFamily: FontFamily.montserratRegular,
     lineHeight: 18,
   },
@@ -168,9 +165,9 @@ const styles = StyleSheet.create({
     width: 415,
     borderTopWidth: 1,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     left: 0,
-    position: "absolute",
+    position: 'absolute',
   },
   favoritesLayout: {
     width: 365,
@@ -178,34 +175,34 @@ const styles = StyleSheet.create({
     height: 1,
     borderTopWidth: 1,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
-    position: "absolute",
+    borderStyle: 'solid',
+    position: 'absolute',
   },
   frameFlexBox: {
-    flexDirection: "row",
+    flexDirection: 'row',
     width: 283,
     left: 106,
-    alignItems: "center",
+    alignItems: 'center',
     height: 42,
-    position: "absolute",
+    position: 'absolute',
   },
   h1FlexBox: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   h2Typo: {
     color: Color.colorGray_200,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
     fontSize: FontSize.size_sm,
-    textAlign: "left",
+    textAlign: 'left',
     lineHeight: 18,
   },
   h1GroupFlexBox: {
     height: 27,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    flexDirection: "row",
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   h11Typo: {
     lineHeight: 27,
@@ -217,52 +214,52 @@ const styles = StyleSheet.create({
   backIconLayout: {
     width: 8,
     height: 14,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   iconPosition: {
     left: 33,
-    position: "absolute",
+    position: 'absolute',
   },
   vectorParentLayout: {
     width: 26,
-    position: "absolute",
+    position: 'absolute',
   },
   googleFlexBox: {
-    justifyContent: "center",
-    alignItems: "center",
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
   },
   homePosition: {
     color: Color.colorDarkslategray,
     fontFamily: FontFamily.openSansRegular,
-    top: "50%",
+    top: '50%',
     marginTop: 0,
     fontSize: FontSize.size_sm,
-    position: "absolute",
+    position: 'absolute',
   },
   cartTypo: {
     fontSize: FontSize.size_xs,
-    textAlign: "center",
+    textAlign: 'center',
     fontFamily: FontFamily.montserratRegular,
   },
   parentPosition: {
     top: 17,
     height: 42,
-    position: "absolute",
+    position: 'absolute',
   },
   frameLayout: {
     backgroundColor: Color.darkDeep,
     borderRadius: Border.br_smi,
-    left: "0%",
-    height: "13.19%",
-    position: "absolute",
+    left: '0%',
+    height: '13.19%',
+    position: 'absolute',
   },
   favorurite: {
     top: 56,
     left: 156,
     fontSize: FontSize.size_xl,
     color: Color.darkDeep,
-    position: "absolute",
+    position: 'absolute',
   },
   favoritesChild: {
     top: 106,
@@ -284,10 +281,10 @@ const styles = StyleSheet.create({
   },
   h1: {
     lineHeight: 20,
-    textAlign: "left",
+    textAlign: 'left',
     letterSpacing: 0,
     fontSize: FontSize.size_base,
-    display: "flex",
+    display: 'flex',
     color: Color.darkDeep,
     fontFamily: FontFamily.montserratRegular,
     width: 196,
@@ -296,15 +293,15 @@ const styles = StyleSheet.create({
     width: 72,
     height: 15,
     marginTop: 6,
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
   },
   h1Parent: {
     width: 196,
     height: 42,
   },
   h11: {
-    textAlign: "right",
+    textAlign: 'right',
   },
   backArrowIcon: {
     marginLeft: 6,
@@ -316,15 +313,15 @@ const styles = StyleSheet.create({
   },
   frameParent: {
     top: 372,
-    justifyContent: "flex-end",
-    alignItems: "center",
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   h12: {
     width: 137,
-    textAlign: "left",
+    textAlign: 'left',
     letterSpacing: 0,
     fontSize: FontSize.size_base,
-    display: "flex",
+    display: 'flex',
     color: Color.darkDeep,
     fontFamily: FontFamily.montserratRegular,
     lineHeight: 18,
@@ -337,7 +334,7 @@ const styles = StyleSheet.create({
     height: 42,
   },
   h13: {
-    textAlign: "left",
+    textAlign: 'left',
   },
   backArrowIcon1: {
     marginLeft: 2,
@@ -349,11 +346,11 @@ const styles = StyleSheet.create({
   },
   frameGroup: {
     top: 488,
-    alignItems: "center",
+    alignItems: 'center',
   },
   frameContainer: {
     top: 593,
-    alignItems: "center",
+    alignItems: 'center',
   },
   pngfuel12Icon: {
     top: 136,
@@ -370,14 +367,14 @@ const styles = StyleSheet.create({
     left: 20,
     width: 56,
     height: 56,
-    position: "absolute",
+    position: 'absolute',
   },
   pngfuel13Icon: {
     top: 481,
     left: 34,
     width: 29,
     height: 53,
-    position: "absolute",
+    position: 'absolute',
   },
   pngfuel14Icon: {
     top: 584,
@@ -397,17 +394,17 @@ const styles = StyleSheet.create({
     width: 364,
     height: 67,
     left: 25,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   home: {
-    width: "9.86%",
-    left: "8%",
-    textAlign: "left",
+    width: '9.86%',
+    left: '8%',
+    textAlign: 'left',
   },
   profile: {
-    width: "10.41%",
-    left: "81.59%",
-    textAlign: "right",
+    width: '10.41%',
+    left: '81.59%',
+    textAlign: 'right',
   },
   vectorIcon: {
     width: 22,
@@ -421,12 +418,12 @@ const styles = StyleSheet.create({
     top: 19,
     left: 180,
     height: 40,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   store1Icon: {
     width: 24,
     height: 24,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   shop: {
     marginTop: 3,
@@ -435,46 +432,46 @@ const styles = StyleSheet.create({
   store1Parent: {
     left: 29,
     width: 32,
-    alignItems: "flex-end",
+    alignItems: 'flex-end',
   },
   vectorIcon1: {
-    height: "100%",
-    width: "64.31%",
-    right: "0%",
-    bottom: "0%",
-    left: "35.69%",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    top: "0%",
-    position: "absolute",
-    overflow: "hidden",
+    height: '100%',
+    width: '64.31%',
+    right: '0%',
+    bottom: '0%',
+    left: '35.69%',
+    maxWidth: '100%',
+    maxHeight: '100%',
+    top: '0%',
+    position: 'absolute',
+    overflow: 'hidden',
   },
   frameChild: {
-    bottom: "86.81%",
-    right: "68.55%",
-    width: "31.45%",
+    bottom: '86.81%',
+    right: '68.55%',
+    width: '31.45%',
     borderRadius: Border.br_smi,
-    left: "0%",
-    height: "13.19%",
-    top: "0%",
+    left: '0%',
+    height: '13.19%',
+    top: '0%',
   },
   frameItem: {
-    width: "22.97%",
-    top: "40.66%",
-    right: "77.03%",
-    bottom: "46.15%",
+    width: '22.97%',
+    top: '40.66%',
+    right: '77.03%',
+    bottom: '46.15%',
     borderRadius: Border.br_smi,
-    left: "0%",
-    height: "13.19%",
+    left: '0%',
+    height: '13.19%',
   },
   frameInner: {
-    top: "81.87%",
-    bottom: "4.95%",
-    right: "68.55%",
-    width: "31.45%",
+    top: '81.87%',
+    bottom: '4.95%',
+    right: '68.55%',
+    width: '31.45%',
     borderRadius: Border.br_smi,
-    left: "0%",
-    height: "13.19%",
+    left: '0%',
+    height: '13.19%',
   },
   vectorGroup: {
     width: 28,
@@ -493,22 +490,22 @@ const styles = StyleSheet.create({
   bookmark1Parent: {
     left: 243,
     width: 57,
-    alignItems: "center",
+    alignItems: 'center',
   },
   user1Parent: {
     left: 336,
     width: 51,
-    alignItems: "center",
+    alignItems: 'center',
   },
   bottomBar: {
-    height: "10.27%",
-    top: "89.71%",
-    right: "0.14%",
-    bottom: "0.02%",
-    left: "-0.14%",
+    height: '10.27%',
+    top: '89.71%',
+    right: '0.14%',
+    bottom: '0.02%',
+    left: '-0.14%',
     borderTopLeftRadius: Border.br_mini,
     borderTopRightRadius: Border.br_mini,
-    shadowColor: "rgba(230, 235, 244, 0.5)",
+    shadowColor: 'rgba(230, 235, 244, 0.5)',
     shadowOffset: {
       width: 0,
       height: -12,
@@ -516,13 +513,13 @@ const styles = StyleSheet.create({
     shadowRadius: 37,
     elevation: 37,
     shadowOpacity: 1,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   favorites: {
     flex: 1,
     height: 896,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
 });
 

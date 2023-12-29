@@ -1,15 +1,13 @@
 import React, {useMemo} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {FontSize, FontFamily, Color, Border} from '../GlobalStyles';
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
 
 const getStyleValue = (key, value) => {
   if (value === undefined) return;
   return {[key]: value === 'unset' ? undefined : value};
 };
-const StartButton = ({
-  navigation,
+const SignUpButton = ({
+  onPress,
   buttonText,
   propHeight,
   propWidth,
@@ -30,11 +28,7 @@ const StartButton = ({
   }, [propHeight, propWidth, propTop, propRight, propBottom, propLeft]);
 
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('SignIn');
-      }}
-      style={[styles.button, buttonStyle]}>
+    <TouchableOpacity onPress={onPress} style={[styles.button, buttonStyle]}>
       <Text style={styles.getStarted}>{buttonText}</Text>
     </TouchableOpacity>
   );
@@ -63,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StartButton;
+export default SignUpButton;

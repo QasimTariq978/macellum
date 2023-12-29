@@ -1,6 +1,6 @@
-import * as React from "react";
-import { Image, StyleSheet, Text, View, ImageBackground } from "react-native";
-import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
+import * as React from 'react';
+import {Image, StyleSheet, Text, View, ImageBackground} from 'react-native';
+import {Color, Border, FontSize, FontFamily} from '../GlobalStyles';
 
 const Search = () => {
   return (
@@ -8,24 +8,24 @@ const Search = () => {
       <Image
         style={styles.backArrowIcon}
         resizeMode="cover"
-        source={require("../assets/back-arrow5.png")}
+        source={require('../assets/back-arrow5.png')}
       />
       <Image
         style={styles.searchChild}
         resizeMode="cover"
-        source={require("../assets/group-6839.png")}
+        source={require('../assets/group-6839.png')}
       />
       <View style={[styles.search1, styles.search1Layout]}>
         <Image
           style={[styles.searchItem, styles.searchItemLayout]}
           resizeMode="cover"
-          source={require("../assets/group-6847.png")}
+          source={require('../assets/group-6847.png')}
         />
         <View style={styles.vectorParent}>
           <Image
             style={[styles.vectorIcon, styles.vectorIconLayout]}
             resizeMode="cover"
-            source={require("../assets/vector10.png")}
+            source={require('../assets/vector10.png')}
           />
           <Text style={styles.egg}>Egg</Text>
         </View>
@@ -37,19 +37,19 @@ const Search = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/frame-6813.png")}
+            source={require('../assets/frame-6813.png')}
           />
           <Text style={[styles.h2, styles.h2Typo]}>325ml, Price</Text>
         </View>
         <Image
           style={styles.americanGardenMayonnaiseEggIcon}
           resizeMode="cover"
-          source={require("../assets/americangardenmayonnaiseeggless473ml-1.png")}
+          source={require('../assets/americangardenmayonnaiseeggless473ml-1.png')}
         />
         <Image
           style={[styles.americanGardenMayonnaiseEggIcon1, styles.h11Layout]}
           resizeMode="cover"
-          source={require("../assets/americangardenmayonnaiseeggless473ml-2.png")}
+          source={require('../assets/americangardenmayonnaiseeggless473ml-2.png')}
         />
       </View>
       <View style={[styles.frameGroup, styles.frameLayout]}>
@@ -59,19 +59,19 @@ const Search = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/frame-68131.png")}
+            source={require('../assets/frame-68131.png')}
           />
           <Text style={[styles.h21, styles.h2Typo]}>330ml, Price</Text>
         </View>
         <Image
           style={[styles.rp247903920053554627L1Icon, styles.search1Layout]}
           resizeMode="cover"
-          source={require("../assets/rp-24790392-0053554627-l-1.png")}
+          source={require('../assets/rp-24790392-0053554627-l-1.png')}
         />
         <Image
           style={styles.rp247903920053554627L2Icon}
           resizeMode="cover"
-          source={require("../assets/rp-24790392-0053554627-l-2.png")}
+          source={require('../assets/rp-24790392-0053554627-l-2.png')}
         />
       </View>
       <Text style={[styles.profile, styles.profileFlexBox]}>Profile</Text>
@@ -85,19 +85,19 @@ const Search = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/frame-68132.png")}
+            source={require('../assets/frame-68132.png')}
           />
           <Text style={[styles.h2, styles.h2Typo]}>6pc, Price</Text>
         </View>
         <Image
           style={[styles.pngfuel15Icon, styles.h111Layout]}
           resizeMode="cover"
-          source={require("../assets/pngfuel-15.png")}
+          source={require('../assets/pngfuel-15.png')}
         />
         <Image
           style={styles.pngfuel16Icon}
           resizeMode="cover"
-          source={require("../assets/pngfuel-16.png")}
+          source={require('../assets/pngfuel-16.png')}
         />
       </View>
       <View style={[styles.frameView, styles.framePosition]}>
@@ -107,19 +107,18 @@ const Search = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/frame-68133.png")}
+            source={require('../assets/frame-68133.png')}
           />
           <Text style={[styles.h23, styles.h2Typo]}>30gm, Price</Text>
         </View>
         <ImageBackground
           style={[styles.hiclipart1Wrapper, styles.frameParent2Position]}
           resizeMode="cover"
-          source={require("../assets/frame6848.png")}
-        >
+          source={require('../assets/frame6848.png')}>
           <Image
             style={styles.hiclipart1Icon}
             resizeMode="cover"
-            source={require("../assets/hiclipart-1.png")}
+            source={require('../assets/hiclipart-1.png')}
           />
         </ImageBackground>
       </View>
@@ -130,19 +129,19 @@ const Search = () => {
           <Image
             style={styles.frameChild}
             resizeMode="cover"
-            source={require("../assets/frame-68134.png")}
+            source={require('../assets/frame-68134.png')}
           />
           <Text style={[styles.h23, styles.h2Typo]}>2L, Price</Text>
         </View>
         <Image
           style={styles.eggNoodle11}
           resizeMode="cover"
-          source={require("../assets/eggnoodle-1-1.png")}
+          source={require('../assets/eggnoodle-1-1.png')}
         />
         <Image
           style={styles.eggNoodle12}
           resizeMode="cover"
-          source={require("../assets/eggnoodle-1-2.png")}
+          source={require('../assets/eggnoodle-1-2.png')}
         />
       </View>
       <View style={[styles.h1Parent3, styles.h1Parent3Position]}>
@@ -151,28 +150,26 @@ const Search = () => {
         <Image
           style={styles.frameChild}
           resizeMode="cover"
-          source={require("../assets/frame-68135.png")}
+          source={require('../assets/frame-68135.png')}
         />
         <Text style={[styles.h25, styles.h2Typo]}>12g, Price</Text>
         <Image
           style={styles.pngfuel17Icon}
           resizeMode="cover"
-          source={require("../assets/pngfuel-17.png")}
+          source={require('../assets/pngfuel-17.png')}
         />
         <Image
           style={styles.pngfuel18Icon}
           resizeMode="cover"
-          source={require("../assets/pngfuel-18.png")}
+          source={require('../assets/pngfuel-18.png')}
         />
       </View>
       <View style={styles.bottomBar}>
-        <Text style={[styles.home, styles.homePosition]}>Home</Text>
-        <Text style={[styles.profile1, styles.homePosition]}>Profile</Text>
         <View style={styles.vectorGroup}>
           <Image
             style={styles.vectorIcon1}
             resizeMode="cover"
-            source={require("../assets/vector11.png")}
+            source={require('../assets/vector11.png')}
           />
           <Text style={[styles.cart, styles.cartTypo]}>Cart</Text>
         </View>
@@ -180,7 +177,7 @@ const Search = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/store-12.png")}
+            source={require('../assets/store-12.png')}
           />
           <Text style={[styles.shop, styles.shopTypo]}>Shop</Text>
         </View>
@@ -189,7 +186,7 @@ const Search = () => {
             <Image
               style={[styles.vectorIcon2, styles.vectorIconLayout]}
               resizeMode="cover"
-              source={require("../assets/vector12.png")}
+              source={require('../assets/vector12.png')}
             />
             <View style={[styles.rectangleView, styles.frameChildLayout]} />
             <View style={[styles.frameChild3, styles.frameChildLayout]} />
@@ -201,7 +198,7 @@ const Search = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/bookmark-12.png")}
+            source={require('../assets/bookmark-12.png')}
           />
           <Text style={[styles.favourite, styles.shopTypo]}>Favourite</Text>
         </View>
@@ -209,7 +206,7 @@ const Search = () => {
           <Image
             style={styles.store1Icon}
             resizeMode="cover"
-            source={require("../assets/user-12.png")}
+            source={require('../assets/user-12.png')}
           />
           <Text style={[styles.shop, styles.shopTypo]}>Account</Text>
         </View>
@@ -221,32 +218,32 @@ const Search = () => {
 const styles = StyleSheet.create({
   search1Layout: {
     height: 52,
-    position: "absolute",
+    position: 'absolute',
   },
   searchItemLayout: {
     height: 16,
-    position: "absolute",
+    position: 'absolute',
   },
   vectorIconLayout: {
-    maxHeight: "100%",
-    maxWidth: "100%",
-    top: "0%",
-    position: "absolute",
-    overflow: "hidden",
+    maxHeight: '100%',
+    maxWidth: '100%',
+    top: '0%',
+    position: 'absolute',
+    overflow: 'hidden',
   },
   frameLayout: {
     height: 249,
     width: 173,
     top: 658,
-    position: "absolute",
+    position: 'absolute',
   },
   parentShadowBox: {
     borderWidth: 1,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     shadowOpacity: 1,
     shadowOffset: {
@@ -255,91 +252,91 @@ const styles = StyleSheet.create({
     },
   },
   h1Typo: {
-    display: "flex",
+    display: 'flex',
     lineHeight: 18,
-    alignItems: "center",
+    alignItems: 'center',
     color: Color.darkDeep,
     letterSpacing: 0,
     fontSize: FontSize.size_base,
     top: 130,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     left: 15,
-    position: "absolute",
+    position: 'absolute',
   },
   h11Layout: {
     width: 52,
-    position: "absolute",
+    position: 'absolute',
   },
   h2Typo: {
     height: 15,
     color: Color.colorGray_200,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
-    alignItems: "center",
-    display: "flex",
+    fontWeight: '500',
+    alignItems: 'center',
+    display: 'flex',
     lineHeight: 18,
-    textAlign: "left",
+    textAlign: 'left',
     fontSize: FontSize.size_sm,
     left: 15,
-    position: "absolute",
+    position: 'absolute',
   },
   profileFlexBox: {
-    textAlign: "right",
-    left: "81.59%",
-    width: "10.41%",
+    textAlign: 'right',
+    left: '81.59%',
+    width: '10.41%',
   },
   h1Parent3Position: {
     top: 130,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   h11Typo: {
     fontSize: FontSize.size_lg,
-    alignItems: "center",
-    display: "flex",
+    alignItems: 'center',
+    display: 'flex',
     color: Color.darkDeep,
     lineHeight: 18,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
   },
   h111Layout: {
     width: 65,
-    position: "absolute",
+    position: 'absolute',
   },
   framePosition: {
     top: 394,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   frameParent2Position: {
     top: 20,
-    position: "absolute",
+    position: 'absolute',
   },
   homePosition: {
     marginTop: 0,
     color: Color.colorDarkslategray,
     fontFamily: FontFamily.openSansRegular,
-    top: "50%",
+    top: '50%',
     fontSize: FontSize.size_sm,
-    position: "absolute",
+    position: 'absolute',
   },
   cartTypo: {
     marginTop: 5,
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: FontSize.size_xs,
     fontFamily: FontFamily.montserratRegular,
   },
   parentPosition: {
     height: 42,
     top: 17,
-    position: "absolute",
+    position: 'absolute',
   },
   shopTypo: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: FontSize.size_xs,
     color: Color.colorGray_300,
     fontFamily: FontFamily.montserratRegular,
@@ -347,24 +344,24 @@ const styles = StyleSheet.create({
   frameChildLayout: {
     backgroundColor: Color.colorSeagreen_100,
     borderRadius: Border.br_smi,
-    height: "13.19%",
-    left: "0%",
-    position: "absolute",
+    height: '13.19%',
+    left: '0%',
+    position: 'absolute',
   },
   backArrowIcon: {
     top: 57,
     width: 10,
     height: 18,
     left: 25,
-    position: "absolute",
-    overflow: "hidden",
+    position: 'absolute',
+    overflow: 'hidden',
   },
   searchChild: {
     top: 66,
     left: 370,
     width: 17,
     height: 18,
-    position: "absolute",
+    position: 'absolute',
   },
   searchItem: {
     left: 296,
@@ -372,30 +369,30 @@ const styles = StyleSheet.create({
     top: 18,
   },
   vectorIcon: {
-    height: "94.79%",
-    width: "15.9%",
-    right: "84.1%",
-    bottom: "5.21%",
-    left: "0%",
-    maxHeight: "100%",
-    maxWidth: "100%",
+    height: '94.79%',
+    width: '15.9%',
+    right: '84.1%',
+    bottom: '5.21%',
+    left: '0%',
+    maxHeight: '100%',
+    maxWidth: '100%',
   },
   egg: {
     top: 2,
     left: 28,
-    color: "#181b19",
+    color: '#181b19',
     width: 86,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     fontSize: FontSize.size_sm,
-    position: "absolute",
+    position: 'absolute',
   },
   vectorParent: {
     top: 16,
     width: 113,
     height: 19,
     left: 15,
-    position: "absolute",
+    position: 'absolute',
   },
   search1: {
     borderRadius: Border.br_mini,
@@ -406,16 +403,16 @@ const styles = StyleSheet.create({
   },
   h1: {
     width: 158,
-    alignItems: "center",
+    alignItems: 'center',
   },
   h11: {
     fontSize: FontSize.size_lg,
-    alignItems: "center",
-    display: "flex",
+    alignItems: 'center',
+    display: 'flex',
     color: Color.darkDeep,
     lineHeight: 18,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     top: 205,
     left: 15,
@@ -426,7 +423,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_mid,
     height: 46,
     width: 46,
-    position: "absolute",
+    position: 'absolute',
   },
   h2: {
     width: 78,
@@ -434,27 +431,27 @@ const styles = StyleSheet.create({
     height: 15,
     color: Color.colorGray_200,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   h1Parent: {
     left: 0,
     top: 0,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   americanGardenMayonnaiseEggIcon: {
     top: 46,
     left: 64,
     height: 64,
     width: 46,
-    position: "absolute",
+    position: 'absolute',
   },
   americanGardenMayonnaiseEggIcon1: {
     left: 61,
@@ -466,7 +463,7 @@ const styles = StyleSheet.create({
   },
   h12: {
     width: 137,
-    alignItems: "center",
+    alignItems: 'center',
   },
   h21: {
     width: 81,
@@ -474,20 +471,20 @@ const styles = StyleSheet.create({
     height: 15,
     color: Color.colorGray_200,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   h1Group: {
     left: 0,
     top: 0,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   rp247903920053554627L1Icon: {
     top: 44,
@@ -499,7 +496,7 @@ const styles = StyleSheet.create({
     left: 36,
     width: 101,
     height: 65,
-    position: "absolute",
+    position: 'absolute',
   },
   frameGroup: {
     left: 212,
@@ -508,22 +505,22 @@ const styles = StyleSheet.create({
     marginTop: 384.8,
     color: Color.colorDarkslategray,
     fontFamily: FontFamily.openSansRegular,
-    top: "50%",
-    textAlign: "right",
-    left: "81.59%",
-    width: "10.41%",
+    top: '50%',
+    textAlign: 'right',
+    left: '81.59%',
+    width: '10.41%',
     fontSize: FontSize.size_sm,
-    position: "absolute",
+    position: 'absolute',
   },
   homeIndicator: {
     marginLeft: -67,
     bottom: 8,
-    left: "50%",
+    left: '50%',
     borderRadius: Border.br_81xl,
     backgroundColor: Color.colorBlack,
     width: 134,
     height: 5,
-    position: "absolute",
+    position: 'absolute',
   },
   barsHomeIndicatorIphone: {
     top: 880,
@@ -536,20 +533,20 @@ const styles = StyleSheet.create({
     width: 62,
     top: 205,
     fontSize: FontSize.size_lg,
-    position: "absolute",
+    position: 'absolute',
   },
   h1Container: {
     left: 0,
     top: 0,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   pngfuel15Icon: {
     top: 67,
@@ -561,7 +558,7 @@ const styles = StyleSheet.create({
     width: 122,
     height: 122,
     left: 24,
-    position: "absolute",
+    position: 'absolute',
   },
   frameContainer: {
     left: 24,
@@ -572,16 +569,16 @@ const styles = StyleSheet.create({
     color: Color.darkDeep,
     letterSpacing: 0,
     fontSize: FontSize.size_base,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     left: 15,
-    position: "absolute",
+    position: 'absolute',
   },
   h17: {
     top: 202,
     width: 59,
     left: 15,
-    position: "absolute",
+    position: 'absolute',
   },
   h23: {
     top: 172,
@@ -591,21 +588,21 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   hiclipart1Icon: {
     top: 35,
     left: 6,
     height: 61,
     width: 61,
-    position: "absolute",
+    position: 'absolute',
   },
   hiclipart1Wrapper: {
     left: 51,
@@ -619,44 +616,44 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     height: 249,
     width: 173,
-    position: "absolute",
+    position: 'absolute',
   },
   eggNoodle11: {
     top: 42,
     left: 62,
     width: 49,
     height: 67,
-    position: "absolute",
+    position: 'absolute',
   },
   eggNoodle12: {
     left: 56,
     height: 94,
     top: 17,
     width: 61,
-    position: "absolute",
+    position: 'absolute',
   },
   frameParent1: {
     left: 212,
   },
   h110: {
     width: 153,
-    alignItems: "center",
+    alignItems: 'center',
   },
   h111: {
     fontSize: FontSize.size_lg,
-    alignItems: "center",
-    display: "flex",
+    alignItems: 'center',
+    display: 'flex',
     color: Color.darkDeep,
     lineHeight: 18,
     letterSpacing: 0,
-    textAlign: "left",
+    textAlign: 'left',
     fontFamily: FontFamily.montserratRegular,
     top: 205,
     left: 15,
@@ -667,7 +664,7 @@ const styles = StyleSheet.create({
     height: 15,
     color: Color.colorGray_200,
     fontFamily: FontFamily.montserratMedium,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   pngfuel17Icon: {
     left: 50,
@@ -675,23 +672,23 @@ const styles = StyleSheet.create({
     height: 63,
     opacity: 0.7,
     top: 49,
-    position: "absolute",
+    position: 'absolute',
   },
   pngfuel18Icon: {
     top: 25,
     left: 22,
     width: 129,
     height: 86,
-    position: "absolute",
+    position: 'absolute',
   },
   h1Parent3: {
     left: 212,
     borderWidth: 1,
     borderColor: Color.colorGainsboro_100,
-    borderStyle: "solid",
+    borderStyle: 'solid',
     elevation: 12,
     shadowRadius: 12,
-    shadowColor: "rgba(0, 0, 0, 0)",
+    shadowColor: 'rgba(0, 0, 0, 0)',
     borderRadius: Border.br_lg,
     shadowOpacity: 1,
     shadowOffset: {
@@ -700,14 +697,14 @@ const styles = StyleSheet.create({
     },
   },
   home: {
-    width: "9.86%",
-    left: "8%",
-    textAlign: "left",
+    width: '9.86%',
+    left: '8%',
+    textAlign: 'left',
   },
   profile1: {
-    textAlign: "right",
-    left: "81.59%",
-    width: "10.41%",
+    textAlign: 'right',
+    left: '81.59%',
+    width: '10.41%',
     marginTop: 0,
   },
   vectorIcon1: {
@@ -723,13 +720,13 @@ const styles = StyleSheet.create({
     left: 180,
     width: 26,
     height: 40,
-    justifyContent: "flex-end",
-    position: "absolute",
+    justifyContent: 'flex-end',
+    position: 'absolute',
   },
   store1Icon: {
     width: 24,
     height: 24,
-    overflow: "hidden",
+    overflow: 'hidden',
   },
   shop: {
     marginTop: 3,
@@ -737,38 +734,38 @@ const styles = StyleSheet.create({
   store1Parent: {
     left: 29,
     width: 32,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   vectorIcon2: {
-    height: "100%",
-    width: "64.31%",
-    right: "0%",
-    bottom: "0%",
-    left: "35.69%",
+    height: '100%',
+    width: '64.31%',
+    right: '0%',
+    bottom: '0%',
+    left: '35.69%',
   },
   rectangleView: {
-    bottom: "86.81%",
-    right: "68.55%",
-    width: "31.45%",
+    bottom: '86.81%',
+    right: '68.55%',
+    width: '31.45%',
     borderRadius: Border.br_smi,
-    height: "13.19%",
-    top: "0%",
+    height: '13.19%',
+    top: '0%',
   },
   frameChild3: {
-    width: "22.97%",
-    top: "40.66%",
-    right: "77.03%",
-    bottom: "46.15%",
+    width: '22.97%',
+    top: '40.66%',
+    right: '77.03%',
+    bottom: '46.15%',
     borderRadius: Border.br_smi,
-    height: "13.19%",
+    height: '13.19%',
   },
   frameChild4: {
-    top: "81.87%",
-    bottom: "4.95%",
-    right: "68.55%",
-    width: "31.45%",
+    top: '81.87%',
+    bottom: '4.95%',
+    right: '68.55%',
+    width: '31.45%',
     borderRadius: Border.br_smi,
-    height: "13.19%",
+    height: '13.19%',
   },
   vectorContainer: {
     width: 28,
@@ -780,9 +777,9 @@ const styles = StyleSheet.create({
   frameParent2: {
     left: 96,
     height: 38,
-    justifyContent: "center",
+    justifyContent: 'center',
     width: 46,
-    alignItems: "center",
+    alignItems: 'center',
   },
   favourite: {
     marginTop: 2,
@@ -790,22 +787,22 @@ const styles = StyleSheet.create({
   bookmark1Parent: {
     left: 243,
     width: 57,
-    alignItems: "center",
+    alignItems: 'center',
   },
   user1Parent: {
     left: 336,
     width: 51,
-    alignItems: "center",
+    alignItems: 'center',
   },
   bottomBar: {
-    height: "10.27%",
-    top: "89.71%",
-    right: "0.02%",
-    bottom: "0.02%",
-    left: "-0.02%",
+    height: '10.27%',
+    top: '89.71%',
+    right: '0.02%',
+    bottom: '0.02%',
+    left: '-0.02%',
     borderTopLeftRadius: Border.br_mini,
     borderTopRightRadius: Border.br_mini,
-    shadowColor: "rgba(230, 235, 244, 0.5)",
+    shadowColor: 'rgba(230, 235, 244, 0.5)',
     shadowRadius: 37,
     elevation: 37,
     shadowOpacity: 1,
@@ -813,16 +810,16 @@ const styles = StyleSheet.create({
       width: 0,
       height: 6,
     },
-    position: "absolute",
-    overflow: "hidden",
-    width: "100%",
+    position: 'absolute',
+    overflow: 'hidden',
+    width: '100%',
     backgroundColor: Color.colorWhite,
   },
   search: {
     flex: 1,
     height: 896,
-    overflow: "hidden",
-    width: "100%",
+    overflow: 'hidden',
+    width: '100%',
     backgroundColor: Color.colorWhite,
   },
 });

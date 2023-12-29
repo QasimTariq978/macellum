@@ -15,14 +15,19 @@ const Explore = ({navigation}) => {
     <View style={styles.explore}>
       <View style={[styles.frame, styles.frameFlexBox]}>
         <View style={styles.search}>
-          <View style={[styles.vectorParent, styles.frame4FlexBox]}>
-            <Image
-              style={styles.vectorIcon}
-              resizeMode="cover"
-              source={require('../assets/vector.png')}
-            />
-            <Text style={styles.searchStore}>Search Store</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Search');
+            }}>
+            <View style={[styles.vectorParent, styles.frame4FlexBox]}>
+              <Image
+                style={styles.vectorIcon}
+                resizeMode="cover"
+                source={require('../assets/vector.png')}
+              />
+              <Text style={styles.searchStore}>Search Store</Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={[styles.frame1, styles.frameFlexBox]}>
@@ -128,12 +133,17 @@ const Explore = ({navigation}) => {
       <View style={[styles.frame9, styles.frameLayout]}>
         <View style={[styles.bottomBar, styles.frameItemPosition1]}>
           <View style={styles.vectorGroup}>
-            <Image
-              style={styles.vectorIcon1}
-              resizeMode="cover"
-              source={require('../assets/vector1.png')}
-            />
-            <Text style={[styles.cart, styles.cartTypo]}>Cart</Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('MyCart');
+              }}>
+              <Image
+                style={styles.vectorIcon1}
+                resizeMode="cover"
+                source={require('../assets/vector1.png')}
+              />
+              <Text style={[styles.cart, styles.cartTypo]}>Cart</Text>
+            </TouchableOpacity>
           </View>
           <View style={[styles.store1Parent, styles.parentPosition]}>
             <Image
@@ -153,21 +163,31 @@ const Explore = ({navigation}) => {
             </View>
             <Text style={[styles.explore1, styles.cartTypo]}>Explore</Text>
           </View>
-          <View style={[styles.bookmark1Parent, styles.parentPosition]}>
-            <Image
-              style={styles.store1Icon}
-              resizeMode="cover"
-              source={require('../assets/bookmark-1.png')}
-            />
-            <Text style={[styles.favourite, styles.shopTypo]}>Favourite</Text>
-          </View>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Favorites');
+            }}>
+            <View style={[styles.bookmark1Parent, styles.parentPosition]}>
+              <Image
+                style={styles.store1Icon}
+                resizeMode="cover"
+                source={require('../assets/bookmark-1.png')}
+              />
+              <Text style={[styles.favourite, styles.shopTypo]}>Favourite</Text>
+            </View>
+          </TouchableOpacity>
           <View style={[styles.user1Parent, styles.parentPosition]}>
-            <Image
-              style={styles.store1Icon}
-              resizeMode="cover"
-              source={require('../assets/user-1.png')}
-            />
-            <Text style={[styles.shop, styles.shopTypo]}>Account</Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('Account');
+              }}>
+              <Image
+                style={styles.store1Icon}
+                resizeMode="cover"
+                source={require('../assets/user-1.png')}
+              />
+              <Text style={[styles.shop, styles.shopTypo]}>Account</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

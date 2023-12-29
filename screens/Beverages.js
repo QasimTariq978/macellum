@@ -2,8 +2,32 @@ import * as React from 'react';
 import {Text, StyleSheet, Image, View, TouchableOpacity} from 'react-native';
 import CardContainer from '../components/CardContainer';
 import {Color, FontFamily, FontSize, Border} from '../GlobalStyles';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const Beverages = ({navigation}) => {
+  const addProductToFirestore = async (productName, productPrice) => {
+    try {
+      const userId = auth().currentUser.uid; // Get the current user's UID
+
+      // Reference to the user's document in Firestore
+      const userDocRef = firestore().collection('users').doc(userId);
+
+      // Reference to the 'products' collection within the user's document
+      const productsCollectionRef = userDocRef.collection('products');
+
+      // Add the new product document to the 'products' collection
+      await productsCollectionRef.add({
+        name: productName,
+        price: productPrice,
+      });
+
+      console.log('Product added to Firestore successfully!');
+    } catch (error) {
+      console.error('Error adding product to Firestore:', error);
+    }
+  };
+
   return (
     <View style={styles.beverages}>
       <Text style={styles.beverages1}>Beverages</Text>
@@ -83,11 +107,16 @@ const Beverages = ({navigation}) => {
         <View style={[styles.h1Container, styles.h1GroupShadowBox]}>
           <Text style={[styles.h11, styles.h11Position]}>Diet Coke</Text>
           <Text style={styles.h16}>Rs 100</Text>
-          <Image
-            style={styles.frameChild}
-            resizeMode="cover"
-            source={require('../assets/frame-68138.png')}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              addProductToFirestore('Diet Coke', 100); // Adjust product name and price accordingly
+            }}>
+            <Image
+              style={styles.frameChild}
+              resizeMode="cover"
+              source={require('../assets/frame-68138.png')}
+            />
+          </TouchableOpacity>
           <Text style={[styles.h23, styles.h21Typo]}>500ml, Price</Text>
         </View>
         <Image
@@ -112,6 +141,7 @@ Juice`}
         propLeft1="8.71%"
       />
       <CardContainer
+        
         juiceName="Orange Juice"
         productDimensions={require('../assets/frame-681310.png')}
         juiceImageUrl={require('../assets/treetopjuiceapplegrape64oz-12.png')}
@@ -121,11 +151,16 @@ Juice`}
       />
       <View style={[styles.frameView, styles.framePosition]}>
         <Text style={[styles.h11, styles.h11Position]}>Sprite Can</Text>
-        <Image
-          style={styles.frameChild}
-          resizeMode="cover"
-          source={require('../assets/frame-681311.png')}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            addProductToFirestore('Sprite Can', 100); // Adjust product name and price accordingly
+          }}>
+          <Image
+            style={styles.frameChild}
+            resizeMode="cover"
+            source={require('../assets/frame-681311.png')}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );

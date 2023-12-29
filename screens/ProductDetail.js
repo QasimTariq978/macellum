@@ -1,17 +1,46 @@
 import * as React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 import StartButton from '../components/StartButton';
 import {Color, FontSize, FontFamily, Border} from '../GlobalStyles';
+import AddToCart from '../components/AddToCart';
+import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 
-const ProductDetail = () => {
+const ProductDetail = ({navigation}) => {
+  const addProductToFirestore = async (productName, productPrice) => {
+    try {
+      const userId = auth().currentUser.uid; // Get the current user's UID
+
+      // Reference to the user's document in Firestore
+      const userDocRef = firestore().collection('users').doc(userId);
+
+      // Reference to the 'products' collection within the user's document
+      const productsCollectionRef = userDocRef.collection('products');
+
+      // Add the new product document to the 'products' collection
+      await productsCollectionRef.add({
+        name: productName,
+        price: productPrice,
+      });
+
+      console.log('Product added to Firestore successfully!');
+    } catch (error) {
+      console.error('Error adding product to Firestore:', error);
+    }
+  };
   return (
     <View style={styles.productDetail}>
       <View style={styles.productDetailChild} />
-      <Image
-        style={[styles.backArrowIcon, styles.frame115sLayout]}
-        resizeMode="cover"
-        source={require('../assets/back-arrow12.png')}
-      />
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Explore');
+        }}>
+        <Image
+          style={[styles.backArrowIcon, styles.frame115sLayout]}
+          resizeMode="cover"
+          source={require('../assets/back-arrow12.png')}
+        />
+      </TouchableOpacity>
       <Image
         style={[styles.vectorIcon, styles.vectorIconLayout1]}
         resizeMode="cover"
@@ -103,14 +132,17 @@ const ProductDetail = () => {
         resizeMode="cover"
         source={require('../assets/pngfuel-1-1.png')}
       />
-      <StartButton
-        buttonText="Add To Basket"
+      <AddToCart
+        buttonText="Add To Cart"
         propHeight={67}
         propWidth={364}
         propTop={730}
         propRight="unset"
         propBottom="unset"
         propLeft={25}
+        onPress={() => {
+          addProductToFirestore('Diet Coke', 100); // Adjust product name and price accordingly
+        }}
       />
       <Image
         style={[styles.vectorIcon7, styles.vectorIconLayout1]}

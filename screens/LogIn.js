@@ -1,131 +1,156 @@
 import * as React from 'react';
-import {Image, StyleSheet, View, Text} from 'react-native';
-import LoginButton from '../components/LoginButton';
-import {FontFamily, FontSize, Color} from '../GlobalStyles';
-import { TextInput } from 'react-native';
-import { useState } from 'react';
-import { TouchableOpacity } from 'react-native';
-import auth from '@react-native-firebase/auth'; // Assuming Firebase authentication is set up properly
-
+import {
+  Image,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  Alert,
+  ScrollView,
+  KeyboardAvoidingView,
+} from 'react-native';
+import auth from '@react-native-firebase/auth';
+import {FontSize, FontFamily, Color, Border} from '../GlobalStyles';
 
 const LogIn = ({navigation}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const handleLogin = () => {
-    console.log(email)
-    console.log(password)
+    console.log(email);
+    console.log(password);
     if (!email || !password) {
-      Alert.alert('Missing Information', 'Please enter your email and password.');
+      Alert.alert(
+        'Missing Information',
+        'Please enter your email and password.',
+      );
       return;
     }
 
-    auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-        // User successfully logged in
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(userCredential => {
         const user = userCredential.user;
         console.log('User logged in:', user);
-        // Perform any actions after successful login
-        // For example, navigate to another screen:
-        // navigation.navigate('Home');
-      }).catch((error) => {
-        // Handle login errors
+        navigation.navigate('Explore');
+      })
+      .catch(error => {
         console.error('Login error:', error);
         Alert.alert('Login Failed', 'Invalid email or password.');
-        // Display error messages or handle errors as needed
       });
   };
 
   return (
-    <View style={styles.logIn}>
-      <Image
-        style={[styles.maskGroupIcon, styles.logInChildPosition]}
-        resizeMode="cover"
-        source={require('../assets/mask-group.png')}
-      />
-      <Image
-        style={[styles.maskGroupIcon, styles.logInChildPosition]}
-        resizeMode="cover"
-        source={require('../assets/mask-group.png')}
-      />
-      <View style={[styles.email, styles.emailLayout, styles.inputContainer]}>
-        <TextInput
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          style={styles.input}
-          placeholder="Email"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-      </View>
-      <View style={[styles.password, styles.emailLayout, styles.inputContainer]}>
-        <TextInput
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-      </View>
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <Text style={styles.loginButtonText}>Log In</Text>
-      </TouchableOpacity>
-      <LoginButton
-        navigation={navigation}
-        buttonText="Log In"
-        propHeight={67}
-        propWidth={364}
-        propTop={583}
-        propRight="unset"
-        propBottom="unset"
-        propLeft={25}
-        onPress={handleLogin}
-      />
-      <View style={[styles.email, styles.emailLayout]}>
-        <View
-          style={[styles.grocerymacellumcomParent, styles.groupParentLayout]}>
-                <View style={[styles.email, styles.inputContainer]}>
-        <TextInput
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          style={styles.input}
-          placeholder="Email"
-          keyboardType="email-address"
-          autoCapitalize="none"
-        />
-      </View>
-
+    <KeyboardAvoidingView
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+      <ScrollView
+        contentContainerStyle={styles.scrollViewContainer}
+        keyboardShouldPersistTaps="handled">
+        <View style={styles.logIn}>
           <Image
-            style={[styles.groupInner, styles.groupIconLayout]}
+            style={[styles.maskGroupIcon, styles.logInChildPosition]}
             resizeMode="cover"
-            source={require('../assets/vector-28.png')}
+            source={require('../assets/mask-group.png')}
           />
+          <Image
+            style={[styles.maskGroupIcon, styles.logInChildPosition]}
+            resizeMode="cover"
+            source={require('../assets/mask-group.png')}
+          />
+          <View
+            style={[styles.email, styles.emailLayout, styles.inputContainer]}>
+            <Text style={styles.password1}>Email</Text>
+            <TextInput
+              value={email}
+              onChangeText={text => setEmail(text)}
+              style={styles.input}
+              placeholder="Enter your email"
+              placeholderTextColor={'gray'}
+              color="black"
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+          </View>
+          <View
+            style={[
+              styles.password,
+              styles.emailLayout,
+              styles.inputContainer,
+            ]}>
+            <Text style={styles.password1}>Password</Text>
+            <TextInput
+              value={password}
+              onChangeText={text => setPassword(text)}
+              style={styles.input}
+              color="black"
+              placeholder="Enter your password"
+              placeholderTextColor={'gray'}
+              secureTextEntry={true}
+            />
+          </View>
+
+          <View style={[styles.email, styles.emailLayout]}>
+            <View
+              style={[
+                styles.grocerymacellumcomParent,
+                styles.groupParentLayout,
+              ]}>
+              <View style={[styles.email, styles.inputContainer]}>
+                <TextInput
+                  value={email}
+                  onChangeText={text => setEmail(text)}
+                  style={styles.input}
+                  placeholder="Email"
+                  keyboardType="email-address"
+                  autoCapitalize="none"
+                />
+              </View>
+              <Image
+                style={[styles.groupInner, styles.groupIconLayout]}
+                resizeMode="cover"
+                source={require('../assets/vector-28.png')}
+              />
+            </View>
+            <Text style={[styles.password1, styles.password1Position]}>
+              Email
+            </Text>
+          </View>
+          <View style={styles.text}>
+            <Text style={[styles.logIn1, styles.logIn1Layout]}>Log In</Text>
+            <Text style={[styles.enterYourEmail, styles.enterYourEmailTypo]}>
+              Enter your Email and Password
+            </Text>
+          </View>
+          <Text style={[styles.forgotPassword, styles.forgotPasswordLayout]}>
+            Forgot Password?
+          </Text>
+          <Text
+            style={[styles.dontHaveAnContainer, styles.forgotPasswordLayout]}>
+            <Text style={styles.dontHaveAn}>{`Don’t have an account? `}</Text>
+            <Text style={styles.signUp}>Sign Up</Text>
+          </Text>
+          <Image
+            style={[styles.groupIcon, styles.groupIconLayout]}
+            resizeMode="cover"
+            source={require('../assets/group.png')}
+          />
+          <View style={[styles.logInChild, styles.logInChildPosition]} />
         </View>
-        <Text style={[styles.password1, styles.password1Position]}>Email</Text>
-      </View>
-      <View style={styles.text}>
-        <Text style={[styles.logIn1, styles.logIn1Layout]}>Log In</Text>
-        <Text style={[styles.enterYourEmail, styles.enterYourEmailTypo]}>
-          Enter your Email and Password
-        </Text>
-      </View>
-      <Text style={[styles.forgotPassword, styles.forgotPasswordLayout]}>
-        Forgot Password?
-      </Text>
-      <Text style={[styles.dontHaveAnContainer, styles.forgotPasswordLayout]}>
-        <Text style={styles.dontHaveAn}>{`Don’t have an account? `}</Text>
-        <Text style={styles.signUp}>Sign Up</Text>
-      </Text>
-      <Image
-        style={[styles.groupIcon, styles.groupIconLayout]}
-        resizeMode="cover"
-        source={require('../assets/group.png')}
-      />
-      <View style={[styles.logInChild, styles.logInChildPosition]} />
-    </View>
+        <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+          <Text style={styles.loginButtonText}>Log In</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollViewContainer: {
+    flexGrow: 1,
+    paddingBottom: 20, // Add padding at the bottom to avoid button overlap
+  },
   logInChildPosition: {
     width: 414,
     left: 0,
@@ -151,18 +176,18 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   enterYourEmailTypo: {
-    fontFamily: FontFamily.montserratMedium,
+    fontFamily: 'Montserrat-Medium',
     fontWeight: '500',
   },
   logIn1Layout: {
-    lineHeight: 29,
-    top: 0,
+    top: -30,
+    left: -3,
   },
   forgotPasswordLayout: {
     height: 14,
     lineHeight: 15,
     letterSpacing: 0.7,
-    fontSize: FontSize.size_sm,
+    fontSize: 16,
     textAlign: 'left',
     position: 'absolute',
   },
@@ -188,10 +213,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   password1: {
-    color: Color.colorGray_200,
-    fontSize: FontSize.size_base,
+    color: 'black',
+    fontSize: 18,
     textAlign: 'left',
-    fontFamily: FontFamily.montserratRegular,
+    fontFamily: 'Montserrat-Regular',
     lineHeight: 29,
     top: 0,
   },
@@ -207,10 +232,11 @@ const styles = StyleSheet.create({
   },
   password: {
     top: 441,
+    borderColor: 'black',
   },
   grocerymacellumcom: {
-    fontSize: FontSize.size_lg,
-    color: Color.darkDeep,
+    fontSize: 24,
+    color: 'black',
     textAlign: 'left',
     left: 0,
     position: 'absolute',
@@ -231,12 +257,11 @@ const styles = StyleSheet.create({
     top: 332,
   },
   logIn1: {
-    fontSize: FontSize.size_7xl,
+    fontSize: 48,
     textAlign: 'center',
-    color: Color.darkDeep,
-    fontFamily: FontFamily.montserratRegular,
+    color: 'black',
+    fontFamily: 'Montserrat-Regular',
     left: 0,
-    lineHeight: 29,
     position: 'absolute',
   },
   enterYourEmail: {
@@ -245,8 +270,8 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     left: 0,
     position: 'absolute',
-    color: Color.colorGray_200,
-    fontSize: FontSize.size_base,
+    color: 'gray',
+    fontSize: 16,
   },
   text: {
     top: 233,
@@ -259,21 +284,21 @@ const styles = StyleSheet.create({
     top: 539,
     left: 245,
     width: 144,
-    color: Color.darkDeep,
-    fontFamily: FontFamily.montserratMedium,
+    color: 'black',
+    fontFamily: 'Montserrat-Medium',
     fontWeight: '500',
   },
   dontHaveAn: {
-    color: Color.darkDeep,
+    color: 'black',
   },
   signUp: {
-    color: Color.colorMediumseagreen_100,
+    color: 'green',
   },
   dontHaveAnContainer: {
     top: 675,
     left: 93,
     width: 228,
-    fontFamily: FontFamily.montserratRegular,
+    fontFamily: 'Montserrat-Regular',
   },
   groupIcon: {
     height: '6.62%',
@@ -286,13 +311,35 @@ const styles = StyleSheet.create({
   logInChild: {
     top: 749,
     height: 147,
+    position: 'relative',
   },
   logIn: {
-    backgroundColor: Color.colorGray_100,
+    backgroundColor: 'white',
     flex: 1,
     width: '100%',
     overflow: 'hidden',
+    paddingBottom: 20, // Adjusted paddingBottom
     height: 896,
+  },
+  loginButton: {
+    position: 'absolute',
+    height: '10%',
+    width: '88%',
+    top: '78%',
+    right: '7.37%',
+    bottom: '20.57%',
+    left: '4%',
+    borderRadius: Border.br_lgi,
+    backgroundColor: Color.colorSeagreen_100,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    margin: 10,
+  },
+  loginButtonText: {
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 30,
   },
 });
 
