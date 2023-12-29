@@ -15,6 +15,7 @@ const LoginButton = ({
   propRight,
   propBottom,
   propLeft,
+  onPress
 }) => {
   const buttonStyle = useMemo(() => {
     return {
@@ -29,9 +30,8 @@ const LoginButton = ({
 
   return (
     <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('Explore');
-      }}
+      // onPress={// navigation.navigate('Explore');}
+      onPress={onPress}
       style={[styles.button, buttonStyle]}>
       <Text style={styles.getStarted}>{buttonText}</Text>
     </TouchableOpacity>

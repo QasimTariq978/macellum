@@ -2,8 +2,39 @@ import * as React from 'react';
 import {Image, StyleSheet, View, Text} from 'react-native';
 import LoginButton from '../components/LoginButton';
 import {FontFamily, FontSize, Color} from '../GlobalStyles';
+import { TextInput } from 'react-native';
+import { useState } from 'react';
+import { TouchableOpacity } from 'react-native';
+import auth from '@react-native-firebase/auth'; // Assuming Firebase authentication is set up properly
+
 
 const LogIn = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    console.log(email)
+    console.log(password)
+    if (!email || !password) {
+      Alert.alert('Missing Information', 'Please enter your email and password.');
+      return;
+    }
+
+    auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
+        // User successfully logged in
+        const user = userCredential.user;
+        console.log('User logged in:', user);
+        // Perform any actions after successful login
+        // For example, navigate to another screen:
+        // navigation.navigate('Home');
+      }).catch((error) => {
+        // Handle login errors
+        console.error('Login error:', error);
+        Alert.alert('Login Failed', 'Invalid email or password.');
+        // Display error messages or handle errors as needed
+      });
+  };
+
   return (
     <View style={styles.logIn}>
       <Image
@@ -11,25 +42,33 @@ const LogIn = ({navigation}) => {
         resizeMode="cover"
         source={require('../assets/mask-group.png')}
       />
-      <View style={[styles.password, styles.emailLayout]}>
-        <View style={[styles.groupParent, styles.groupParentLayout]}>
-          {/* Text Input Here / Password */}
-
-          <Image
-            style={[styles.groupItem, styles.groupIconLayout]}
-            resizeMode="cover"
-            source={require('../assets/vector-27.png')}
-          />
-        </View>
-        <Text style={[styles.password1, styles.password1Position]}>
-          Password
-        </Text>
-        <Image
-          style={[styles.vectorIcon, styles.groupIconLayout]}
-          resizeMode="cover"
-          source={require('../assets/vector25.png')}
+      <Image
+        style={[styles.maskGroupIcon, styles.logInChildPosition]}
+        resizeMode="cover"
+        source={require('../assets/mask-group.png')}
+      />
+      <View style={[styles.email, styles.emailLayout, styles.inputContainer]}>
+        <TextInput
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          autoCapitalize="none"
         />
       </View>
+      <View style={[styles.password, styles.emailLayout, styles.inputContainer]}>
+        <TextInput
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          style={styles.input}
+          placeholder="Password"
+          secureTextEntry={true}
+        />
+      </View>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+        <Text style={styles.loginButtonText}>Log In</Text>
+      </TouchableOpacity>
       <LoginButton
         navigation={navigation}
         buttonText="Log In"
@@ -39,11 +78,21 @@ const LogIn = ({navigation}) => {
         propRight="unset"
         propBottom="unset"
         propLeft={25}
+        onPress={handleLogin}
       />
       <View style={[styles.email, styles.emailLayout]}>
         <View
           style={[styles.grocerymacellumcomParent, styles.groupParentLayout]}>
-          {/* //Text Input Here */}
+                <View style={[styles.email, styles.inputContainer]}>
+        <TextInput
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          style={styles.input}
+          placeholder="Email"
+          keyboardType="email-address"
+          autoCapitalize="none"
+        />
+      </View>
 
           <Image
             style={[styles.groupInner, styles.groupIconLayout]}
