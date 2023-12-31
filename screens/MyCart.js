@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Text, StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, View, Image, FlatList, TouchableOpacity} from 'react-native';
 import {Color, FontSize, FontFamily, Padding} from '../GlobalStyles';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
-const MyCart = () => {
+const MyCart = ({navigation}) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -84,6 +84,16 @@ const MyCart = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.myCart1}>My Cart</Text>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('Explore');
+        }}>
+        <Image
+          style={[styles.backArrowIcon, styles.backArrowIconPosition]}
+          resizeMode="cover"
+          source={require('../assets/back-arrow11.png')}
+        />
+      </TouchableOpacity>
 
       <FlatList
         data={cartItems}
@@ -160,6 +170,16 @@ const styles = StyleSheet.create({
     color: Color.colorGray_100,
     textAlign: 'center',
     alignItems: 'center',
+  },
+  backArrowIconPosition: {
+    height: 18,
+    top: -35,
+    position: 'absolute',
+  },
+  backArrowIcon: {
+    width: 10,
+    left: 25,
+    overflow: 'hidden',
   },
   rs400: {
     fontSize: 30,

@@ -19,8 +19,8 @@ const ProductDetail = ({navigation}) => {
 
       // Add the new product document to the 'products' collection
       await productsCollectionRef.add({
-        name: productName,
-        price: productPrice,
+        name: 'Red Apples',
+        price: "100",
       });
 
       console.log('Product added to Firestore successfully!');
