@@ -3,14 +3,46 @@ import {Text, StyleSheet, View, Image, FlatList, TouchableOpacity} from 'react-n
 import {Color, FontSize, FontFamily, Padding} from '../GlobalStyles';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const MyCart = ({navigation}) => {
+const MyCart = ({ navigation }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  
+  const handleDeleteItem = async itemName => {
+    try {
+      const userId = auth().currentUser.uid;
+      const userDocRef = firestore().collection('users').doc(userId);
+      const cartCollectionRef = userDocRef.collection('products');
+
+      const itemQuery = await cartCollectionRef.where('name', '==', itemName).get();
+
+      if (!itemQuery.empty) {
+        const itemDocRef = itemQuery.docs[0].ref;
+        await itemDocRef.delete();
+
+        const updatedCart = cartItems.filter(item => item.name !== itemName);
+        setCartItems(updatedCart);
+
+        const total = updatedCart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+        setTotalPrice(total);
+
+        await AsyncStorage.setItem('cartItems', JSON.stringify(updatedCart));
+      } else {
+        console.warn('Item not found in Firestore:', itemName);
+      }
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  };
 
   useEffect(() => {
-    const fetchCartItems = async () => {
+    const fetchData = async () => {
       try {
+        let aggregatedItems = [];
         const userId = auth().currentUser.uid;
         const userDocRef = firestore().collection('users').doc(userId);
         const cartCollectionRef = userDocRef.collection('products');
@@ -24,63 +56,44 @@ const MyCart = ({navigation}) => {
           if (itemMap.has(itemName)) {
             itemMap.get(itemName).quantity += 1;
           } else {
-            itemMap.set(itemName, {...item, quantity: 1});
+            itemMap.set(itemName, { ...item, quantity: 1 });
           }
         });
 
-        const aggregatedItems = Array.from(itemMap.values());
+        aggregatedItems = Array.from(itemMap.values());
 
-        // Calculate total price
         const total = aggregatedItems.reduce(
           (sum, item) => sum + item.price * item.quantity,
           0,
         );
         setTotalPrice(total);
 
+        await AsyncStorage.setItem('cartItems', JSON.stringify(aggregatedItems));
+
         setCartItems(aggregatedItems);
       } catch (error) {
-        console.error('Error fetching cart items:', error);
+        console.error('Error fetching and storing cart items:', error);
+        // If fetching from Firestore fails, attempt to get data from AsyncStorage
+        try {
+          const storedCartItems = await AsyncStorage.getItem('cartItems');
+          if (storedCartItems !== null) {
+            const parsedCartItems = JSON.parse(storedCartItems);
+            setCartItems(parsedCartItems);
+
+            const total = parsedCartItems.reduce(
+              (sum, item) => sum + item.price * item.quantity,
+              0,
+            );
+            setTotalPrice(total);
+          }
+        } catch (asyncError) {
+          console.error('Error fetching cart items from AsyncStorage:', asyncError);
+        }
       }
     };
 
-    fetchCartItems();
+    fetchData();
   }, []);
-
-  const handleDeleteItem = async itemName => {
-    try {
-      const userId = auth().currentUser.uid;
-      const userDocRef = firestore().collection('users').doc(userId);
-      const cartCollectionRef = userDocRef.collection('products');
-
-      // Query the document with the specified item name
-      const itemQuery = await cartCollectionRef
-        .where('name', '==', itemName)
-        .get();
-
-      // Check if the item exists
-      if (!itemQuery.empty) {
-        // Delete the item from Firestore
-        const itemDocRef = itemQuery.docs[0].ref;
-        await itemDocRef.delete();
-
-        // Update the local state (remove the deleted item)
-        const updatedCart = cartItems.filter(item => item.name !== itemName);
-        setCartItems(updatedCart);
-
-        // Update the total price
-        const total = updatedCart.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0,
-        );
-        setTotalPrice(total);
-      } else {
-        console.warn('Item not found in Firestore:', itemName);
-      }
-    } catch (error) {
-      console.error('Error deleting item:', error);
-    }
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.myCart1}>My Cart</Text>

@@ -2,9 +2,25 @@ import * as React from 'react';
 import {StyleSheet, View, Image, Text, TouchableOpacity} from 'react-native';
 import {Color, FontFamily, FontSize, Border, Padding} from '../GlobalStyles';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Account = ({navigation}) => {
   const userEmail = auth().currentUser.email;
+
+  const handleLogout = async () => {
+    try {
+      // Clear AsyncStorage data here
+      await AsyncStorage.clear();
+
+      // Sign out the user from Firebase authentication
+      await auth().signOut();
+      
+      // Redirect the user to the login screen
+      navigation.navigate('LogIn');
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
 
   return (
     <View style={[styles.account, styles.accountBg]}>
@@ -162,12 +178,7 @@ const Account = ({navigation}) => {
         />
       </View>
       <TouchableOpacity
-        onPress={() => {
-          auth()
-            .signOut()
-            .then(() => console.log('User signed out!'))
-            .then(navigation.navigate('LogIn'));
-        }}>
+        onPress={handleLogout}>
         <View style={[styles.google, styles.googleFlexBox]}>
           <Text style={[styles.logOut, styles.help1Typo]}>Log Out</Text>
         </View>

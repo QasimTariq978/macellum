@@ -13,24 +13,43 @@ import EmailForm from '../components/EmailForm';
 import {FontFamily, FontSize, Color} from '../GlobalStyles';
 import auth from '@react-native-firebase/auth';
 import SignUpButton from '../components/SignUpButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SignUp = ({navigation}) => {
+const useFirebase = true;
+
+const SignUp = ({ navigation }) => {
   const [emailData, setEmailData] = useState('');
   const [password, setPassword] = useState('');
+
+  const storeCredentials = async () => {
+    try {
+      await AsyncStorage.setItem('userEmail', emailData);
+      await AsyncStorage.setItem('userPassword', password);
+      navigation.navigate('LogIn');
+    } catch (error) {
+      console.error('Error storing data:', error);
+    }
+  };
+
   const signUp = () => {
     console.log('User Email:', emailData);
     console.log('Password:', password);
-    auth()
-      .createUserWithEmailAndPassword(emailData, password)
-      .then(() => {
-        Alert.alert('User Created');
-        navigation.navigate('LogIn');
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-  return (
+
+    if (useFirebase) {
+      auth()
+        .createUserWithEmailAndPassword(emailData, password)
+        .then(() => {
+          Alert.alert('User Created');
+          navigation.navigate('LogIn');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      // Use AsyncStorage to store user credentials
+      storeCredentials();
+    }
+  };  return (
     <View style={styles.signUp}>
       <Image
         style={[styles.frameIcon, styles.frameIconPosition]}

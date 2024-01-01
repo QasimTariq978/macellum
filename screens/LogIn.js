@@ -12,19 +12,34 @@ import {
 } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import {FontSize, FontFamily, Color, Border} from '../GlobalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useState } from 'react';
 
-const LogIn = ({navigation}) => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
+const LogIn = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log(email);
-    console.log(password);
+  // Function to handle login with AsyncStorage credentials
+  const handleLoginWithAsyncStorage = async () => {
+    try {
+      const storedEmail = await AsyncStorage.getItem('userEmail');
+      const storedPassword = await AsyncStorage.getItem('userPassword');
+
+      if (storedEmail === email && storedPassword === password) {
+        navigation.navigate('Explore');
+      } else {
+        Alert.alert('Login Failed', 'Invalid email or password.');
+      }
+    } catch (error) {
+      console.error('AsyncStorage Error:', error);
+      Alert.alert('Login Failed', 'Error while retrieving credentials.');
+    }
+  };
+
+  // Function to handle login with Firebase credentials
+  const handleLoginWithFirebase = () => {
     if (!email || !password) {
-      Alert.alert(
-        'Missing Information',
-        'Please enter your email and password.',
-      );
+      Alert.alert('Missing Information', 'Please enter your email and password.');
       return;
     }
 
@@ -40,6 +55,12 @@ const LogIn = ({navigation}) => {
         Alert.alert('Login Failed', 'Invalid email or password.');
       });
   };
+
+  // Determine which login method to use based on comments
+  const useFirebaseAuth = true; // Set this to true to use Firebase authentication
+
+  const handleLogin = useFirebaseAuth ? handleLoginWithFirebase : handleLoginWithAsyncStorage;
+
 
   return (
     <KeyboardAvoidingView
